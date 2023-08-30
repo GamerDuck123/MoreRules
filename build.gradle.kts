@@ -1,5 +1,6 @@
 plugins {
     id("root-plugin")
+    id("com.modrinth.minotaur") version "2.+"
 }
 
 defaultTasks("build")
@@ -18,6 +19,17 @@ val combine = tasks.register<Jar>("combine") {
     }
 
     from(jarFiles)
+}
+
+modrinth {
+    token.set(System.getenv("MODRINTH_TOKEN"))
+    projectId.set("DaNtdRka")
+    versionNumber.set(project.version as String)
+    versionType.set("release")
+    uploadFile.set(tasks.jar)
+    gameVersions.addAll("1.20.1")
+    loaders.addAll("fabric", "paper")
+    syncBodyFrom.set(rootProject.file("README.md").readText())
 }
 
 allprojects {

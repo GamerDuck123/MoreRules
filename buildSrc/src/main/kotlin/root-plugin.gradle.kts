@@ -6,10 +6,6 @@ plugins {
 }
 
 repositories {
-    maven("https://repo.crazycrew.us/first-party/")
-
-    maven("https://repo.crazycrew.us/third-party/")
-
     maven("https://jitpack.io/")
 
     mavenCentral()

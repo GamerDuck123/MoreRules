@@ -1,5 +1,7 @@
 # MoreRules
 
+More rules is a plugin and mod 
+
 ## Currently Supported GameRules
 ** Warning ** Forge and Nukkit Support have not yet been added.
 
