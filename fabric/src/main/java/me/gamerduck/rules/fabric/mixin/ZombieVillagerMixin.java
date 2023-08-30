@@ -2,6 +2,9 @@ package me.gamerduck.rules.fabric.mixin;
 
 import me.gamerduck.rules.common.GameRule;
 import net.minecraft.block.IceBlock;
+import net.minecraft.entity.ai.brain.sensor.VillagerHostilesSensor;
+import net.minecraft.entity.ai.goal.ZombieAttackGoal;
+import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.mob.ZombieVillagerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

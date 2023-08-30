@@ -17,7 +17,7 @@ canAnvilCostTooMuch currently doesn't support Paper due to the need to use Packe
 | doesGhastGrief             | X      | X     |       |        |
 | doesCoralDecay             | X      | X     |       |        |
 | doVillagerWitchConversion  | X      | X     |       |        |
-| doVillagerZombieConversion |        | X     |       |        |
+| doVillagerZombieConversion | X      | X     |       |        |
 | doZombieVillagerConversion | X      | X     |       |        |
 | doPigPiglinConversion      | X      | X     |       |        |
 | canAnvilCostTooMuch        | X      |       |       |        |
