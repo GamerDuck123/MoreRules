@@ -15,8 +15,8 @@ import static me.gamerduck.rules.fabric.MoreRulesMod.gameRules;
 @Mixin(CoralBlockBlock.class)
 public abstract class CoralBlockMixin {
     @Inject(method = "scheduledTick", at = @At(value = "HEAD"), cancellable = true)
-    private static void inject(BlockState blockState, ServerWorld serverWorld, BlockPos blockPos, Random random, CallbackInfo ci) {
-        if (gameRules.gameRuleValueBool(serverWorld, GameRule.CORAL_DECAY)) ci.cancel();
+    private void inject(BlockState blockState, ServerWorld serverWorld, BlockPos blockPos, Random random, CallbackInfo ci) {
+        if (!gameRules.gameRuleValueBool(serverWorld, GameRule.CORAL_DECAY)) ci.cancel();
     }
 
 

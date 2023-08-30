@@ -38,7 +38,7 @@ public enum GameRule {
     public Object defaultValue() {return defaultValue;}
 
     public static GameRule fromId(String id) {
-        return Stream.of(values()).filter(rule -> rule.id().equalsIgnoreCase(id)).findFirst().get();
+        return Stream.of(values()).filter(rule -> rule.id().equalsIgnoreCase(id)).findFirst().orElseGet(null);
     }
 
 

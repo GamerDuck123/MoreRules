@@ -104,6 +104,7 @@ public class GameRules<W> {
                 else if (valueType.contains("Integer") || valueType.contains("int")) finalValue = Integer.valueOf(value);
                 else if (valueType.contains("Double") || valueType.contains("double")) finalValue = Double.valueOf(value);
                 else if (valueType.contains("Float") || valueType.contains("float")) finalValue = Float.valueOf(value);
+                if (GameRule.fromId(gameRule) == null) return;
                 tempValues.put(GameRule.fromId(gameRule), finalValue);
             });
             world.loadData(tempValues);

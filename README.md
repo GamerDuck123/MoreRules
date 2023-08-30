@@ -13,7 +13,7 @@ Forge and Nukkit Support have not yet been added.
 | doesRespawnAnchorGrief     | X      | X     |       |        |
 | doesCreeperGrief           | X      | X     |       |        |
 | doesGhastGrief             | X      | X     |       |        |
-| doesCoralDecay             |        | X     |       |        |
+| doesCoralDecay             | X      | X     |       |        |
 | doVillagerWitchConversion  | X      | X     |       |        |
 | doVillagerZombieConversion |        | X     |       |        |
 | doZombieVillagerConversion |        | X     |       |        |

@@ -17,6 +17,7 @@
       "TntEntityMixin",
       "SnowBlockMixin",
       "VillagerMixin",
+      "CoralBlockMixin",
       "PigMixin"
     ],
 	"injectors": {
