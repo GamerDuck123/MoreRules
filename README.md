@@ -19,7 +19,7 @@ Forge and Nukkit Support have not yet been added.
 | doZombieVillagerConversion |        | X     |       |        |
 | doPigPiglinConversion      | X      | X     |       |        |
 | canAnvilCostTooMuch        | X      |       |       |        |
-| canSculkSpread             |        | X     |       |        |
+| canSculkSpread             | X      | X     |       |        |
 | canLightMeltIce            | X      | X     |       |        |
 | canLightMeltSnow           | X      | X     |       |        |
 | canMobsPickupItems         |        | X     |       |        |
