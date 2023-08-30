@@ -1,7 +1,9 @@
 # MoreRules
 
 ## Currently Supported GameRules
-Forge and Nukkit Support have not yet been added.
+** Warning ** Forge and Nukkit Support have not yet been added.
+
+canAnvilCostTooMuch currently doesn't support Paper due to the need to use Packets, which I would like to try and avoid as much as possible!
 
 | GameRule                   | Fabric | Paper | Forge | Nukkit |
 |----------------------------|--------|-------|-------|--------|
@@ -22,4 +24,4 @@ Forge and Nukkit Support have not yet been added.
 | canSculkSpread             | X      | X     |       |        |
 | canLightMeltIce            | X      | X     |       |        |
 | canLightMeltSnow           | X      | X     |       |        |
-| canMobsPickupItems         |        | X     |       |        |
+| canMobsPickupItems         | X      | X     |       |        |

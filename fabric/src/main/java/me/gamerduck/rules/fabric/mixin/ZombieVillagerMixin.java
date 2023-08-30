@@ -18,7 +18,7 @@ import static me.gamerduck.rules.fabric.MoreRulesMod.gameRules;
 @Mixin(ZombieVillagerEntity.class)
 public abstract class ZombieVillagerMixin {
     private final ZombieVillagerEntity me = ((ZombieVillagerEntity) (Object) this);
-    @Redirect(method = "interactMob", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z", opcode = Opcodes.GETFIELD))
+    @Redirect(method = "interactMob", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
     private boolean inject(ItemStack instance, Item item) {
         return gameRules.gameRuleValueBool(me.getWorld(), GameRule.ZOMBIE_VILLAGER_CONVERSIONS) ? instance.isOf(Items.GOLDEN_APPLE) : false;
     }

@@ -13,7 +13,10 @@ import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.event.world.WorldUnloadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.awt.*;
 import java.io.File;
+
+import static net.kyori.adventure.text.minimessage.MiniMessage.miniMessage;
 
 
 public class MoreRules extends JavaPlugin implements Listener {
