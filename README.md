@@ -1,6 +1,10 @@
 # MoreRules
 
-More rules is a plugin and mod 
+More rules is a plugin and mod that provides extra GameRules to allow fine-tuning of features on your server, while keeping it as vanilla as possible!
+
+## The Basics
+
+Both the mod and plugin inject their code into the /gamerule command, so its as simple as changing any other gamerule! You can see a list of supported gamerules below (a more indepth wiki will be coming soon)
 
 ## Currently Supported GameRules
 ** Warning ** Forge and Nukkit Support have not yet been added.
