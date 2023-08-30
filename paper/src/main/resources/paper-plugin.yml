@@ -1,0 +1,6 @@
+name: '${name}'
+main: '${group}.MoreRules'
+
+version: '${version}'
+api-version: '${apiVersion}'
+description: '${description}'

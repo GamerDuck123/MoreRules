@@ -1,0 +1,12 @@
+accessWidener v2 named
+
+accessible class net/minecraft/entity/mob/EndermanEntity$PlaceBlockGoal
+accessible class net/minecraft/entity/mob/EndermanEntity$PickUpBlockGoal
+accessible class net/minecraft/entity/mob/GhastEntity$ShootFireballGoal
+accessible field net/minecraft/entity/mob/EndermanEntity$PlaceBlockGoal enderman Lnet/minecraft/entity/mob/EndermanEntity;
+accessible field net/minecraft/entity/mob/EndermanEntity$PickUpBlockGoal enderman Lnet/minecraft/entity/mob/EndermanEntity;
+accessible field net/minecraft/entity/mob/GhastEntity$ShootFireballGoal ghast Lnet/minecraft/entity/mob/GhastEntity;
+accessible field net/minecraft/entity/mob/CreeperEntity explosionRadius I
+accessible field net/minecraft/screen/ForgingScreenHandler player Lnet/minecraft/entity/player/PlayerEntity;
+accessible field net/minecraft/entity/projectile/FireballEntity explosionPower I
+accessible method net/minecraft/block/IceBlock melt (Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)V
