@@ -1,5 +1,5 @@
 rootProject.name = "MoreRules"
-include("common", "paper", "fabric")
+include("common", "paper", "fabric", "nukkit", "forge")
 
 pluginManagement {
     repositories {

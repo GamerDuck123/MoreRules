@@ -28,6 +28,6 @@ canAnvilCostTooMuch currently doesn't support Paper due to the need to use Packe
 | doPigPiglinConversion      | X      | X     |       |        |
 | canAnvilCostTooMuch        | X      |       |       |        |
 | canSculkSpread             | X      | X     |       |        |
-| canLightMeltIce            | X      | X     |       |        |
-| canLightMeltSnow           | X      | X     |       |        |
+| canLightMeltIce            | X      | X     |       | X      |
+| canLightMeltSnow           | X      | X     |       | X      |
 | canMobsPickupItems         | X      | X     |       |        |

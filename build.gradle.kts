@@ -36,6 +36,8 @@ allprojects {
     listOf(
         ":fabric",
         ":paper",
+        ":nukkit",
+        ":forge",
         ":common"
     ).forEach {
         project(it) {
@@ -55,6 +57,18 @@ allprojects {
             if (this.name == "fabric") {
                 repositories {
                     maven("https://maven.fabricmc.net")
+                }
+            }
+
+            if (this.name == "nukkit") {
+                repositories {
+                    maven("https://repo.opencollab.dev/maven-snapshots")
+                    maven("https://repo.opencollab.dev/maven-releases/")
+                }
+            }
+
+            if (this.name == "forge") {
+                repositories {
                 }
             }
         }
