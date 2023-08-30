@@ -19,6 +19,7 @@
       "VillagerMixin",
       "CoralBlockMixin",
       "SculkCatalystMixin",
+      "ZombieVillagerMixin",
       "PigMixin"
     ],
 	"injectors": {

@@ -16,7 +16,7 @@ Forge and Nukkit Support have not yet been added.
 | doesCoralDecay             | X      | X     |       |        |
 | doVillagerWitchConversion  | X      | X     |       |        |
 | doVillagerZombieConversion |        | X     |       |        |
-| doZombieVillagerConversion |        | X     |       |        |
+| doZombieVillagerConversion | X      | X     |       |        |
 | doPigPiglinConversion      | X      | X     |       |        |
 | canAnvilCostTooMuch        | X      |       |       |        |
 | canSculkSpread             | X      | X     |       |        |
