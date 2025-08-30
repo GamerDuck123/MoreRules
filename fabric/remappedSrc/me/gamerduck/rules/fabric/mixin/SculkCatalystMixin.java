@@ -4,7 +4,6 @@ import me.gamerduck.rules.common.GameRule;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CoralBlockBlock;
 import net.minecraft.block.entity.SculkCatalystBlockEntity;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -23,8 +22,8 @@ import static me.gamerduck.rules.fabric.MoreRulesMod.gameRules;
 public abstract class SculkCatalystMixin {
 
     @Inject(method = "listen", at = @At(value = "HEAD"), cancellable = true)
-    private void inject(ServerWorld world, RegistryEntry<GameEvent> event, GameEvent.Emitter emitter, Vec3d emitterPos, CallbackInfoReturnable<Boolean> cir) {
-        if (!gameRules.gameRuleValueBool(world, GameRule.SCULK_SPREADING))
+    private void inject(ServerWorld serverWorld, GameEvent gameEvent, GameEvent.Emitter emitter, Vec3d vec3d, CallbackInfoReturnable<Boolean> cir) {
+        if (!gameRules.gameRuleValueBool(serverWorld, GameRule.SCULK_SPREADING))
             cir.setReturnValue(false);
 
     }

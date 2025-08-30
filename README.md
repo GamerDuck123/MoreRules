@@ -26,7 +26,7 @@ Both the mod and plugin inject their code into the /gamerule command, so its as 
 | doVillagerZombieConversion | X      | X     |       |        |
 | doZombieVillagerConversion | X      | X     |       |        |
 | doPigPiglinConversion      | X      | X     |       |        |
-| canAnvilCostTooMuch        | X      |       |       |        |
+| canAnvilCostTooMuch        |        |       |       |        |
 | canSculkSpread             | X      | X     |       |        |
 | canLightMeltIce            | X      | X     |       | X      |
 | canLightMeltSnow           | X      | X     |       | X      |

@@ -2,7 +2,7 @@ plugins {
     `java-library`
     `maven-publish`
 
-    id("com.github.johnrengelman.shadow")
+    id("com.gradleup.shadow")
 }
 
 repositories {
@@ -12,12 +12,12 @@ repositories {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of("17"))
+    toolchain.languageVersion.set(JavaLanguageVersion.of("21"))
 }
 
 tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
-        options.release.set(17)
+        options.release.set(21)
     }
 }

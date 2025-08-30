@@ -1,7 +1,7 @@
 plugins {
     id("root-plugin")
 
-    id("fabric-loom") version "1.3-SNAPSHOT"
+    id("fabric-loom") version "1.11-SNAPSHOT"
 }
 
 group = "${rootProject.group}.fabric"
@@ -10,12 +10,11 @@ version = rootProject.version
 dependencies {
     compileOnly(project(":common"))
 
-    minecraft("com.mojang", "minecraft", project.property("minecraftVersion") as String)
+    minecraft("com.mojang:minecraft:${property("minecraft_version")}")
 
-    mappings("net.fabricmc", "yarn", project.property("yarnMappings") as String)
-
-    modImplementation("net.fabricmc", "fabric-loader", project.property("fabricLoaderVersion") as String)
-    modImplementation("net.fabricmc.fabric-api", "fabric-api", project.property("fabricApiVersion") as String)
+    mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
+    modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_version")}")
 }
 
 base {
@@ -23,7 +22,7 @@ base {
 }
 
 loom {
-    splitEnvironmentSourceSets()
+//    splitEnvironmentSourceSets()
     accessWidenerPath.set(file("src/main/resources/more-rules.accesswidener"))
 //    mods {
 //        "more-rules" {
@@ -42,9 +41,9 @@ tasks {
             "group" to project.group,
             "version" to project.version,
             "description" to project.properties["description"],
-            "fabricApiVersion" to project.properties["fabricApiVersion"],
-            "fabricLoaderVersion" to project.properties["fabricLoaderVersion"],
-            "minecraftVersion" to project.properties["minecraftVersion"],
+            "fabricApiVersion" to project.properties["fabric_version"],
+            "fabricLoaderVersion" to project.properties["loader_version"],
+            "minecraftVersion" to project.properties["minecraft_version"],
             "website" to project.properties["website"],
             "sources" to project.properties["sources"],
             "issues" to project.properties["issues"]

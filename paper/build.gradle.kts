@@ -11,7 +11,7 @@ base {
 
 dependencies {
     compileOnly(project(":common"))
-    compileOnly("com.mojang:brigadier:1.0.18")
+    compileOnly("com.mojang:brigadier:1.2.9")
 }
 
 tasks {
@@ -21,7 +21,7 @@ tasks {
             "group" to project.group,
             "version" to project.version,
             "description" to project.properties["description"],
-            "apiVersion" to "1.20"
+            "apiVersion" to "1.21.8"
         )
 
         filesMatching("paper-plugin.yml") {

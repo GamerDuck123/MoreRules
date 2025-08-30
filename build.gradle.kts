@@ -27,7 +27,7 @@ modrinth {
     versionNumber.set(project.version as String)
     versionType.set("release")
     uploadFile.set(tasks.jar)
-    gameVersions.addAll("1.20.1")
+    gameVersions.addAll("1.21.8")
     loaders.addAll("fabric", "paper")
     syncBodyFrom.set(rootProject.file("README.md").readText())
 }

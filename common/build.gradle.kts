@@ -14,16 +14,16 @@ base {
 
 tasks {
     assemble {
-        dependsOn(shadowJar)
+//        dependsOn(shadowJar)
         doLast {
             delete(fileTree(baseDir = "$buildDir").include("**/*-dev*.jar"))
         }
     }
 
-    shadowJar {
-        archiveBaseName.set("${rootProject.name}-${project.name}")
-        archiveClassifier.set("")
-        mergeServiceFiles()
+//    shadowJar {
+//        archiveBaseName.set("${rootProject.name}-${project.name}")
+//        archiveClassifier.set("")
+//        mergeServiceFiles()
 
 //        listOf(
 //            "net.kyori",
@@ -33,5 +33,5 @@ tasks {
 //        ).forEach {
 //            relocate(it, "libs.$it")
 //        }
-    }
+//    }
 }

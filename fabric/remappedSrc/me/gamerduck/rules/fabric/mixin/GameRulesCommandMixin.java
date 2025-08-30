@@ -6,7 +6,6 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import me.gamerduck.rules.common.GameRule;
-import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.GameRuleCommand;
 import net.minecraft.server.command.ServerCommandSource;
@@ -25,14 +24,14 @@ import static me.gamerduck.rules.fabric.MoreRulesMod.gameRules;
 public class GameRulesCommandMixin {
 
     @Inject(method = "register", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/GameRules;accept(Lnet/minecraft/world/GameRules$Visitor;)V", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
-    private static void injected(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandRegistryAccess, CallbackInfo ci, LiteralArgumentBuilder literalArgumentBuilder) {
+    private static void injected(CommandDispatcher<ServerCommandSource> commandDispatcher, CallbackInfo ci, LiteralArgumentBuilder literalArgumentBuilder) {
         Stream.of(GameRule.values()).forEach(rule -> {
             RequiredArgumentBuilder<ServerCommandSource, Boolean> type = CommandManager.argument("value", BoolArgumentType.bool());
             literalArgumentBuilder.then(CommandManager.literal(rule.id()).executes((commandContext) ->
                     executeQuery(commandContext, rule)
             ).then(type.executes((commandContext) -> executeSet(commandContext, rule))));
         });
-        dispatcher.register(literalArgumentBuilder);
+        commandDispatcher.register(literalArgumentBuilder);
     }
 
     private static int executeSet(CommandContext<ServerCommandSource> commandContext, GameRule rule) {
