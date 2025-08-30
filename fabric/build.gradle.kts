@@ -1,7 +1,7 @@
 plugins {
     id("root-plugin")
 
-    id("fabric-loom") version "1.11-SNAPSHOT"
+    alias(libs.plugins.loom)
 }
 
 group = "${rootProject.group}.fabric"
@@ -10,11 +10,12 @@ version = rootProject.version
 dependencies {
     compileOnly(project(":common"))
 
-    minecraft("com.mojang:minecraft:${property("minecraft_version")}")
+    minecraft(libs.minecraft)
 
-    mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
-    modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_version")}")
+    mappings("net.fabricmc:yarn:${libs.versions.yarn.get()}:v2")
+
+    modImplementation(libs.fabric.loader)
+    modImplementation(libs.fabric.api)
 }
 
 base {

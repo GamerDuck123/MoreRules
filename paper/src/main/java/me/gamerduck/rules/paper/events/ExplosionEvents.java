@@ -22,13 +22,13 @@ public class ExplosionEvents implements Listener {
                     e.getLocation().getWorld().createExplosion(e.getLocation(), 2, false, false);
                 }
             }
-            case PRIMED_TNT, MINECART_TNT -> {
+            case TNT, TNT_MINECART -> {
                 if (!gameRules.gameRuleValueBool(e.getLocation().getWorld(), GameRule.TNT_EXPLOSION)) {
                     e.setCancelled(true);
                     e.getLocation().getWorld().createExplosion(e.getLocation(), 2, false, false);
                 }
             }
-            case ENDER_CRYSTAL -> {
+            case END_CRYSTAL -> {
                 if (!gameRules.gameRuleValueBool(e.getLocation().getWorld(), GameRule.CRYSTAL_EXPLOSION)) {
                     e.setCancelled(true);
                     e.getLocation().getWorld().createExplosion(e.getLocation(), 2, false, false);

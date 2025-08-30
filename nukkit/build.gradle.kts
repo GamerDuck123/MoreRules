@@ -11,7 +11,7 @@ base {
 
 dependencies {
     compileOnly(project(":common"))
-    compileOnly("cn.nukkit", "nukkit", project.properties["nukkitVersion"] as String)
+    compileOnly(libs.nukkit)
 }
 
 tasks {

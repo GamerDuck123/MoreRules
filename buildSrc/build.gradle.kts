@@ -7,7 +7,6 @@ repositories {
 }
 
 dependencies {
-    implementation("com.gradleup.shadow", "shadow-gradle-plugin", "9.1.0")
-
-    implementation("io.papermc.paperweight", "paperweight-userdev", "2.0.0-beta.18")
+    implementation("com.gradleup.shadow:shadow-gradle-plugin:${rootProject.property("shadow_jar")}")
+    implementation("io.papermc.paperweight:paperweight-userdev:${rootProject.property("paper_weight")}")
 }

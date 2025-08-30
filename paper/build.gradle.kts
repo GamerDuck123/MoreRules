@@ -11,7 +11,7 @@ base {
 
 dependencies {
     compileOnly(project(":common"))
-    compileOnly("com.mojang:brigadier:1.2.9")
+    compileOnly(libs.brigadier)
 }
 
 tasks {
