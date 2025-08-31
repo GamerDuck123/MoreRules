@@ -1,10 +1,3 @@
-# Added a new gamerule!
+# Fixed Fabric
 
-Added the gamerule: canZombiesBreakDoors
-
-This new gamerule is pretty simple, it enables (or disables) zombies' ability to break doors regardless of difficulty.
-
-
-| canZombiesBreakDoors | Fabric | Paper | NeoForge |
-|----------------------|--------|-------|----------|
-| Supported?           | X      | X     | X        |
+I had forgot to update the fabric.mod.json which tells the server what version the mod is so it wasn't loading on 1.21.8, this has been fixed!
