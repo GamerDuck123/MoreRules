@@ -30,3 +30,4 @@ Both the mod and plugin inject their code into the /gamerule command, so its as 
 | canLightMeltIce            | X      | X     | X        |
 | canLightMeltSnow           | X      | X     | X        |
 | canMobsPickupItems         | X      | X     | X        |
+| canZombiesBreakDoors       | X      | X     | X        |

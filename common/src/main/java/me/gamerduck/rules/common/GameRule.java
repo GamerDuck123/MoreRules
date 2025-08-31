@@ -21,6 +21,7 @@ public enum GameRule {
     LIGHT_MELT_ICE(Boolean.class, "canLightMeltIce", true),
     LIGHT_MELT_SNOW(Boolean.class, "canLightMeltSnow", true),
     MOB_PICKUP(Boolean.class, "canMobsPickupItems", true),
+    ZOMBIE_BREAK_DOORS(Boolean.class, "canZombiesBreakDoors", true),
     ;
 
     private Class<?> type;

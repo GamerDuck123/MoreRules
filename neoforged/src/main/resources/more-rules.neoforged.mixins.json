@@ -5,6 +5,8 @@
   "mixins": [
     "AnvilInventoryMixin",
     "BedBlockMixin",
+    "BreakDoorGoalMixin",
+    "CoralBlockMixin",
     "CreeperEntityMixin",
     "EndCrystalEntityMixin",
     "FarmlandBlockMixin",
@@ -12,16 +14,15 @@
     "GameRulesCommandMixin",
     "IceBlockMixin",
     "PickupBlockGoalMixin",
+    "PigMixin",
     "PlaceBlockGoalMixin",
     "RespawnAnchorBlockMixin",
-    "TntEntityMixin",
-    "SnowBlockMixin",
-    "VillagerMixin",
-    "CoralBlockMixin",
     "SculkCatalystMixin",
-    "ZombieVillagerMixin",
+    "SnowBlockMixin",
+    "TntEntityMixin",
+    "VillagerMixin",
     "ZombieMixin",
-    "PigMixin"
+    "ZombieVillagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

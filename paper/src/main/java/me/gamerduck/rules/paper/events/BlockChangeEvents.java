@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.*;
+import org.bukkit.event.entity.EntityBreakDoorEvent;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityInteractEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -44,5 +45,10 @@ public class BlockChangeEvents implements Listener {
     public void onCropTrample(PlayerInteractEvent e) {
         if (e.getAction() == Action.PHYSICAL && e.getClickedBlock().getType() == Material.FARMLAND)
             e.setCancelled(!gameRules.gameRuleValueBool(e.getClickedBlock().getWorld(), GameRule.CROP_TRAMPLE));
+    }
+
+    @EventHandler
+    public void onDoorBreak(EntityBreakDoorEvent e) {
+        e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.ZOMBIE_BREAK_DOORS));
     }
 }
