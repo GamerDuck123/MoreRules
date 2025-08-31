@@ -7,7 +7,7 @@
 	"authors": [
 		"GamerDuck123"
 	],
-	"accessWidener" : "more-rules.accesswidener",
+	"accessWidener" : "more-rules.fabric.accesswidener",
 	"contact": {
 		"homepage": "${website}",
 		"sources": "${sources}",
@@ -20,7 +20,7 @@
 		"main": ["${group}.MoreRulesMod"]
 	},
 	"mixins": [
-		"more-rules.mixins.json"
+		"more-rules.fabric.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.21",

@@ -24,7 +24,7 @@ base {
 
 loom {
 //    splitEnvironmentSourceSets()
-    accessWidenerPath.set(file("src/main/resources/more-rules.accesswidener"))
+    accessWidenerPath.set(file("src/main/resources/more-rules.fabric.accesswidener"))
 //    mods {
 //        "more-rules" {
 //            sourceSet sourceSets.main

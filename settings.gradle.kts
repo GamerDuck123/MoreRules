@@ -1,7 +1,10 @@
 rootProject.name = "MoreRules"
-include("common", "paper", "fabric", "nukkit", "forge")
+include("common", "paper", "fabric", "neoforged")
 
 pluginManagement {
+    plugins {
+        id("org.gradle.toolchains.foojay-resolver-convention") version "0.9.0"
+    }
     repositories {
         gradlePluginPortal()
         mavenCentral()

@@ -6,7 +6,6 @@ minecraft = "1.21.8"
 yarn = "1.21.8+build.1"
 loader = "0.17.2"
 api = "0.133.0+1.21.8"
-nukkit = "1.0-SNAPSHOT"
 brigadier = "1.2.9"
 gson = "2.10.1"
 
@@ -18,7 +17,6 @@ loom = "1.11-SNAPSHOT"
 minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
 fabric_loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "loader" }
 fabric_api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "api" }
-nukkit = { group = "cn.nukkit", name = "nukkit", version.ref = "nukkit" }
 brigadier = { group = "com.mojang", name = "brigadier", version.ref = "brigadier" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 

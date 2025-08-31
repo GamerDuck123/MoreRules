@@ -28,16 +28,18 @@ modrinth {
     versionType.set("release")
     uploadFile.set(tasks.jar)
     gameVersions.addAll("1.21.8")
-    loaders.addAll("fabric", "paper")
+    loaders.addAll("fabric", "paper", "spigot", "bukkit", "purpur", "neoforge")
     syncBodyFrom.set(rootProject.file("README.md").readText())
+    changelog.set(rootProject.file("CHANGELOG.md").readText())
 }
-
+tasks.named("modrinth") {
+    dependsOn(tasks.named("combine"))
+}
 allprojects {
     listOf(
         ":fabric",
         ":paper",
-        ":nukkit",
-        ":forge",
+        ":neoforged",
         ":common"
     ).forEach {
         project(it) {
@@ -60,14 +62,7 @@ allprojects {
                 }
             }
 
-            if (this.name == "nukkit") {
-                repositories {
-                    maven("https://repo.opencollab.dev/maven-snapshots")
-                    maven("https://repo.opencollab.dev/maven-releases/")
-                }
-            }
-
-            if (this.name == "forge") {
+            if (this.name == "neoforged") {
                 repositories {
                 }
             }
