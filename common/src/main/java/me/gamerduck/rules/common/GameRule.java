@@ -22,7 +22,6 @@ public enum GameRule {
     LIGHT_MELT_SNOW(Boolean.class, "canLightMeltSnow", true),
     MOB_PICKUP(Boolean.class, "canMobsPickupItems", true),
     ZOMBIE_BREAK_DOORS(Boolean.class, "canZombiesBreakDoors", true),
-
     TNT_DAMAGE(Boolean.class, "doesTntDamage", true),
     CRYSTAL_DAMAGE(Boolean.class, "doesCrystalDamage", true),
     BED_DAMAGE(Boolean.class, "doesBedDamage", true),
