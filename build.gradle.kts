@@ -32,9 +32,11 @@ modrinth {
     syncBodyFrom.set(rootProject.file("README.md").readText())
     changelog.set(rootProject.file("CHANGELOG.md").readText())
 }
+
 tasks.named("modrinth") {
     dependsOn(tasks.named("combine"))
 }
+
 allprojects {
     listOf(
         ":fabric",
@@ -48,6 +50,8 @@ allprojects {
             repositories {
                 mavenCentral()
             }
+            version = rootProject.version
+            group = "${rootProject.group}.${this.name}"
 
             if (this.name == "paper") {
                 repositories {
@@ -60,12 +64,24 @@ allprojects {
                 repositories {
                     maven("https://maven.fabricmc.net")
                 }
+
             }
 
             if (this.name == "neoforged") {
                 repositories {
                 }
             }
+
+            base {
+                archivesName.set("${rootProject.name}-${project.name}")
+            }
+
+            if (this.name != "common") {
+                dependencies {
+                    compileOnly(project(":common"))
+                }
+            }
+
         }
     }
 }

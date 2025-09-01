@@ -2,15 +2,7 @@ plugins {
     id("paper-plugin")
 }
 
-group = "${rootProject.group}.paper"
-version = rootProject.version
-
-base {
-    archivesName.set("${rootProject.name}-${project.name}")
-}
-
 dependencies {
-    compileOnly(project(":common"))
     compileOnly(libs.brigadier)
 }
 
@@ -20,12 +12,19 @@ tasks {
             "name" to rootProject.name,
             "group" to project.group,
             "version" to project.version,
-            "description" to project.properties["description"],
-            "apiVersion" to "1.21.8"
+            "description" to project.property("description") as String,
+            "apiVersion" to libs.versions.minecraft.get()
         )
 
-        filesMatching("paper-plugin.yml") {
-            expand(props)
+        from("src/main/templates") {
+            listOf(
+                "paper-plugin.yml",
+            ).forEach {
+                filesMatching(it) {
+                    expand(props)
+                }
+            }
         }
+        into(layout.buildDirectory.dir("src/main/resources"))
     }
 }

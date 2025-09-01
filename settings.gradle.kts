@@ -1,4 +1,4 @@
-rootProject.name = "MoreRules"
+rootProject.name = "More Rules"
 include("common", "paper", "fabric", "neoforged")
 
 pluginManagement {

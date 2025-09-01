@@ -1,30 +1,28 @@
 {
 	"schemaVersion": 1,
-	"id": "more-rules",
+	"id": "${modid}",
 	"version": "${version}",
 	"name": "${name}",
 	"description": "${description}",
-	"authors": [
-		"GamerDuck123"
-	],
-	"accessWidener" : "more-rules.fabric.accesswidener",
+	"authors": ["${author}"],
+	"accessWidener" : "${modid}.fabric.accesswidener",
 	"contact": {
 		"homepage": "${website}",
 		"sources": "${sources}",
 		"issues": "${issues}"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/more-rules/icon.png",
+	"icon": "assets/${modid}/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": ["${group}.MoreRulesMod"]
 	},
 	"mixins": [
-		"more-rules.fabric.mixins.json"
+		"${modid}.fabric.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.8",
+		"fabricloader": ">=${fabricLoaderVersion}",
+		"minecraft": "~${minecraftVersion}",
 		"java": ">=21",
 		"fabric-api": "*"
 	},

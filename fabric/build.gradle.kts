@@ -4,12 +4,7 @@ plugins {
     alias(libs.plugins.loom)
 }
 
-group = "${rootProject.group}.fabric"
-version = rootProject.version
-
 dependencies {
-    compileOnly(project(":common"))
-
     minecraft(libs.minecraft)
 
     mappings("net.fabricmc:yarn:${libs.versions.yarn.get()}:v2")
@@ -18,19 +13,15 @@ dependencies {
     modImplementation(libs.fabric.api)
 }
 
-base {
-    archivesName.set("${rootProject.name}-${project.name}")
-}
-
 loom {
 //    splitEnvironmentSourceSets()
-    accessWidenerPath.set(file("src/main/resources/more-rules.fabric.accesswidener"))
-//    mods {
-//        "more-rules" {
-//            sourceSet sourceSets.main
-//                    sourceSet sourceSets.client
-//        }
-//    }
+    accessWidenerPath.set(file("src/main/resources/${project.property("modid")}.fabric.accesswidener"))
+
+    mods {
+        create(project.property("modid").toString()) {
+            sourceSet(sourceSets.main.get())
+        }
+    }
 
 }
 
@@ -41,22 +32,26 @@ tasks {
             "name" to rootProject.name,
             "group" to project.group,
             "version" to project.version,
-            "description" to project.properties["description"],
-            "fabricApiVersion" to project.properties["fabric_version"],
-            "fabricLoaderVersion" to project.properties["loader_version"],
-            "minecraftVersion" to project.properties["minecraft_version"],
-            "website" to project.properties["website"],
-            "sources" to project.properties["sources"],
-            "issues" to project.properties["issues"]
+            "modid" to rootProject.property("modid"),
+            "description" to project.property("description"),
+            "fabricApiVersion" to libs.versions.api.get(),
+            "fabricLoaderVersion" to libs.versions.loader.get(),
+            "minecraftVersion" to libs.versions.minecraft.get(),
+            "author" to project.property("author"),
+            "website" to project.property("website"),
+            "sources" to project.property("sources"),
+            "issues" to project.property("issues")
         )
 
-        listOf(
-            "fabric.mod.json",
-            "more-rules.mixins.json"
-        ).forEach {
-            filesMatching(it) {
-                expand(props)
+        from("src/main/templates") {
+            listOf(
+                "fabric.mod.json",
+            ).forEach {
+                filesMatching(it) {
+                    expand(props)
+                }
             }
         }
+        into(layout.buildDirectory.dir("src/main/resources"))
     }
 }

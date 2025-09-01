@@ -2,14 +2,8 @@ plugins {
     id("root-plugin")
 }
 
-group = "${rootProject.group}.common"
-version = rootProject.version
 dependencies {
     compileOnly(libs.gson)
-}
-
-base {
-    archivesName.set("${rootProject.name}-${project.name}")
 }
 
 tasks {
