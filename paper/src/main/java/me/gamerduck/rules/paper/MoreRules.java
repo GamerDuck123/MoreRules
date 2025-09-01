@@ -5,6 +5,7 @@ import me.gamerduck.rules.paper.commands.GameRuleCommand;
 import me.gamerduck.rules.paper.events.BlockChangeEvents;
 import me.gamerduck.rules.paper.events.ExplosionEvents;
 import me.gamerduck.rules.paper.events.PickupPlaceEvents;
+import net.minecraft.world.level.EntityBasedExplosionDamageCalculator;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;

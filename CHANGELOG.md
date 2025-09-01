@@ -5,16 +5,14 @@ These new gamerules work alongside of the other gamerules that stop these source
 For example:
 If you disable doesTntDamage and enable doesTntGrief, it will destroy blocks but not damage any entities nearby.
 
-** For now paper does not work as there is no simple way to stop damage from explosion sources **
-
 | GameRule                   | Fabric | Paper | NeoForge |
 |----------------------------|--------|-------|----------|
-| doesTntDamage              | X      |       | X        |
-| doesCrystalDamage          | X      |       | X        |
-| doesBedDamage              | X      |       | X        |
-| doesRespawnAnchorDamage    | X      |       | X        |
-| doesCreeperDamage          | X      |       | X        |
-| doesGhastDamage            | X      |       | X        |
+| doesTntDamage              | X      | X     | X        |
+| doesCrystalDamage          | X      | X     | X        |
+| doesBedDamage              | X      | X     | X        |
+| doesRespawnAnchorDamage    | X      | X     | X        |
+| doesCreeperDamage          | X      | X     | X        |
+| doesGhastDamage            | X      | X     | X        |
 
 ## Some minor bug fixes:
 #### NeoForge
