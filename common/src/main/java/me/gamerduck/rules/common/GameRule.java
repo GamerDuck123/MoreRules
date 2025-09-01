@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 public enum GameRule {
     ENDERMEN_GRIEFING(Boolean.class, "doesEnderManGrief", true),
     CROP_TRAMPLE(Boolean.class, "doCropTrample", true),
-    TNT_EXPLOSION(Boolean.class, "doesTntGrief", true),
+    TNT_GRIEFING(Boolean.class, "doesTntGrief", true),
     CRYSTAL_GRIEFING(Boolean.class, "doesCrystalGrief", true),
     BED_GRIEFING(Boolean.class, "doesBedGrief", true),
     RESPAWN_ANCHOR_GRIEFING(Boolean.class, "doesRespawnAnchorGrief", true),

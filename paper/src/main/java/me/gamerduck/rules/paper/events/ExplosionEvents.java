@@ -43,11 +43,11 @@ public class ExplosionEvents implements Listener {
                 }
             }
             case TNT -> {
-                if (!gameRules.gameRuleValueBool(craftWorld, GameRule.TNT_EXPLOSION)
+                if (!gameRules.gameRuleValueBool(craftWorld, GameRule.TNT_GRIEFING)
                         || !gameRules.gameRuleValueBool(craftWorld, GameRule.TNT_DAMAGE)) {
                     e.setCancelled(true);
                     world.explode(entity, Explosion.getDefaultDamageSource(world, entity),
-                            new NoExplosionBehavior(craftWorld, GameRule.TNT_EXPLOSION, GameRule.TNT_DAMAGE),
+                            new NoExplosionBehavior(craftWorld, GameRule.TNT_GRIEFING, GameRule.TNT_DAMAGE),
                             x, y, z, yield, false, Level.ExplosionInteraction.TNT);
                 }
             }
