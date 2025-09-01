@@ -1,9 +1,3 @@
-plugins {
-    id("root-plugin")
-
-    alias(libs.plugins.loom)
-}
-
 dependencies {
     minecraft(libs.minecraft)
 
@@ -24,7 +18,6 @@ loom {
     }
 
 }
-
 
 tasks {
     processResources {

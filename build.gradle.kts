@@ -45,31 +45,23 @@ allprojects {
         ":common"
     ).forEach {
         project(it) {
-            apply(plugin = "java")
-
-            repositories {
-                mavenCentral()
-            }
             version = rootProject.version
             group = "${rootProject.group}.${this.name}"
 
             if (this.name == "paper") {
-                repositories {
-                    maven("https://repo.papermc.io/repository/maven-public/")
-                    maven("https://libraries.minecraft.net")
-                }
+                apply(plugin = "paper-plugin")
             }
 
             if (this.name == "fabric") {
-                repositories {
-                    maven("https://maven.fabricmc.net")
-                }
-
+                apply(plugin = "fabric-plugin")
             }
 
             if (this.name == "neoforged") {
-                repositories {
-                }
+                apply(plugin = "neo-forge")
+            }
+
+            if (this.name == "common") {
+                apply(plugin = "root-plugin")
             }
 
             base {

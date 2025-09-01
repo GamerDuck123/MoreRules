@@ -1,12 +1,12 @@
-plugins {
-    id("paper-plugin")
-}
-
 dependencies {
+    paperweight.paperDevBundle("1.21.8-R0.1-SNAPSHOT")
     compileOnly(libs.brigadier)
 }
 
 tasks {
+    assemble {
+        dependsOn(reobfJar)
+    }
     processResources {
         val props = mapOf(
             "name" to rootProject.name,

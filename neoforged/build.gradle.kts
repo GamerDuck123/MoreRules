@@ -1,7 +1,3 @@
-plugins {
-    id("neo-forge")
-}
-
 neoForge {
     // Specify the version of NeoForge to use.
     version = libs.versions.neo.get()

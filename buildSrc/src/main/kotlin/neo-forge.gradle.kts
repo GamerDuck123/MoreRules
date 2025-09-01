@@ -5,12 +5,5 @@ plugins {
     id("net.neoforged.moddev")
 }
 
-
-dependencies {
+repositories {
 }
-
-//tasks {
-//    assemble {
-//        dependsOn(reobfJar)
-//    }
-//}

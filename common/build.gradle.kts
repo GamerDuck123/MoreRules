@@ -1,7 +1,3 @@
-plugins {
-    id("root-plugin")
-}
-
 dependencies {
     compileOnly(libs.gson)
 }
