@@ -4,6 +4,7 @@ import me.gamerduck.rules.common.GameRule;
 import org.bukkit.BlockChangeDelegate;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -49,6 +50,8 @@ public class BlockChangeEvents implements Listener {
 
     @EventHandler
     public void onDoorBreak(EntityBreakDoorEvent e) {
-        e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.ZOMBIE_BREAK_DOORS));
+        if (e.getEntityType() == EntityType.ZOMBIE || e.getEntityType() == EntityType.ZOMBIE_VILLAGER) {
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.ZOMBIE_BREAK_DOORS));
+        }
     }
 }

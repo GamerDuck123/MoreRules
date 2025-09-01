@@ -18,6 +18,6 @@ public abstract class RespawnAnchorBlockMixin {
     @Redirect(method = "explode", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;explode(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/damagesource/DamageSource;Lnet/minecraft/world/level/ExplosionDamageCalculator;Lnet/minecraft/world/phys/Vec3;FZLnet/minecraft/world/level/Level$ExplosionInteraction;)V"))
     private void inject(Level instance, Entity source, DamageSource damageSource, ExplosionDamageCalculator damageCalculator, Vec3 pos, float radius, boolean fire, Level.ExplosionInteraction explosionInteraction) {
         instance.explode(source, null,
-                new NoExplosionBehavior(instance, GameRule.TNT_EXPLOSION), pos, radius, false, explosionInteraction);
+                new NoExplosionBehavior(instance, GameRule.RESPAWN_ANCHOR_GRIEFING, GameRule.RESPAWN_ANCHOR_DAMAGE), pos, radius, false, explosionInteraction);
     }
 }

@@ -15,11 +15,17 @@ Both the mod and plugin inject their code into the /gamerule command, so its as 
 | doesEnderManGrief          | X      | X     | X        |
 | doCropTrample              | X      | X     | X        |
 | doesTntGrief               | X      | X     | X        |
+| doesTntDamage              |        |       |          |
 | doesCrystalGrief           | X      | X     | X        |
+| doesCrystalDamage          |        |       |          |
 | doesBedGrief               | X      | X     | X        |
+| doesBedDamage              |        |       |          |
 | doesRespawnAnchorGrief     | X      | X     | X        |
+| doesRespawnAnchorDamage    |        |       |          |
 | doesCreeperGrief           | X      | X     | X        |
+| doesCreeperDamage          |        |       |          |
 | doesGhastGrief             | X      | X     | X        |
+| doesGhastDamage            |        |       |          |
 | doesCoralDecay             | X      | X     | X        |
 | doVillagerWitchConversion  | X      | X     | X        |
 | doVillagerZombieConversion | X      | X     | X        |

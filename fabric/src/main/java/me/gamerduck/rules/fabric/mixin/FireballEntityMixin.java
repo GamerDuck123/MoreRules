@@ -15,7 +15,7 @@ public abstract class FireballEntityMixin {
     @Redirect(method = "onCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFZLnet/minecraft/world/World$ExplosionSourceType;)V"))
     private void inject(World world, Entity entity, double x, double y, double z, float power, boolean createFire, World.ExplosionSourceType explosionSourceType) {
         world.createExplosion(entity, null,
-                new NoExplosionBehavior(world, GameRule.GHAST_GRIEFING), x, y, z, power, createFire, explosionSourceType);
+                new NoExplosionBehavior(world, GameRule.GHAST_GRIEFING, GameRule.GHAST_DAMAGE), x, y, z, power, createFire, explosionSourceType);
     }
 
 }

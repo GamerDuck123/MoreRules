@@ -17,6 +17,6 @@ public abstract class BedBlockMixin {
     @Redirect(method = "onUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/damage/DamageSource;Lnet/minecraft/world/explosion/ExplosionBehavior;Lnet/minecraft/util/math/Vec3d;FZLnet/minecraft/world/World$ExplosionSourceType;)V"))
     private void inject(World instance, Entity entity, DamageSource damageSource, ExplosionBehavior behavior, Vec3d pos, float power, boolean createFire, World.ExplosionSourceType explosionSourceType) {
         instance.createExplosion(entity, null,
-                new NoExplosionBehavior(instance, GameRule.BED_EXPLOSION), pos, power, createFire, explosionSourceType);
+                new NoExplosionBehavior(instance, GameRule.BED_GRIEFING, GameRule.BED_DAMAGE), pos, power, createFire, explosionSourceType);
     }
 }

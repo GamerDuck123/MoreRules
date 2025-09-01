@@ -16,7 +16,7 @@ public abstract class FireballEntityMixin {
     @Redirect(method = "onHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;explode(Lnet/minecraft/world/entity/Entity;DDDFZLnet/minecraft/world/level/Level$ExplosionInteraction;)V"))
     private void inject(Level instance, Entity source, double x, double y, double z, float radius, boolean fire, Level.ExplosionInteraction explosionInteraction) {
         instance.explode(source, null,
-                new NoExplosionBehavior(instance, GameRule.TNT_EXPLOSION), x, y, z, radius, false, explosionInteraction);
+                new NoExplosionBehavior(instance, GameRule.GHAST_GRIEFING, GameRule.GHAST_DAMAGE), x, y, z, radius, false, explosionInteraction);
     }
 
 }

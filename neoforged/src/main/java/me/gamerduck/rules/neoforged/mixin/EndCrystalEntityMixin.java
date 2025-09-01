@@ -16,6 +16,6 @@ public abstract class EndCrystalEntityMixin {
     @Redirect(method = "hurtServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;explode(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/damagesource/DamageSource;Lnet/minecraft/world/level/ExplosionDamageCalculator;DDDFZLnet/minecraft/world/level/Level$ExplosionInteraction;)V"))
     private void inject(ServerLevel instance, net.minecraft.world.entity.Entity entity, net.minecraft.world.damagesource.DamageSource damageSource, ExplosionDamageCalculator explosionDamageCalculator, double x, double y, double z, float v, boolean b, Level.ExplosionInteraction explosionInteraction) {
         instance.explode(entity, null,
-                new me.gamerduck.rules.neoforged.behaviors.NoExplosionBehavior(instance, GameRule.TNT_EXPLOSION), x, y, z, v, false, explosionInteraction);
+                new me.gamerduck.rules.neoforged.behaviors.NoExplosionBehavior(instance, GameRule.CRYSTAL_GRIEFING, GameRule.CRYSTAL_DAMAGE), x, y, z, v, false, explosionInteraction);
     }
 }

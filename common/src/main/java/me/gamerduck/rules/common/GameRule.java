@@ -6,9 +6,9 @@ public enum GameRule {
     ENDERMEN_GRIEFING(Boolean.class, "doesEnderManGrief", true),
     CROP_TRAMPLE(Boolean.class, "doCropTrample", true),
     TNT_EXPLOSION(Boolean.class, "doesTntGrief", true),
-    CRYSTAL_EXPLOSION(Boolean.class, "doesCrystalGrief", true),
-    BED_EXPLOSION(Boolean.class, "doesBedGrief", true),
-    RESPAWN_ANCHOR_EXPLOSION(Boolean.class, "doesRespawnAnchorGrief", true),
+    CRYSTAL_GRIEFING(Boolean.class, "doesCrystalGrief", true),
+    BED_GRIEFING(Boolean.class, "doesBedGrief", true),
+    RESPAWN_ANCHOR_GRIEFING(Boolean.class, "doesRespawnAnchorGrief", true),
     CREEPER_GRIEFING(Boolean.class, "doesCreeperGrief", true),
     GHAST_GRIEFING(Boolean.class, "doesGhastGrief", true),
     CORAL_DECAY(Boolean.class, "doesCoralDecay", true),
@@ -22,6 +22,13 @@ public enum GameRule {
     LIGHT_MELT_SNOW(Boolean.class, "canLightMeltSnow", true),
     MOB_PICKUP(Boolean.class, "canMobsPickupItems", true),
     ZOMBIE_BREAK_DOORS(Boolean.class, "canZombiesBreakDoors", true),
+
+    TNT_DAMAGE(Boolean.class, "doesTntDamage", true),
+    CRYSTAL_DAMAGE(Boolean.class, "doesCrystalDamage", true),
+    BED_DAMAGE(Boolean.class, "doesBedDamage", true),
+    RESPAWN_ANCHOR_DAMAGE(Boolean.class, "doesRespawnAnchorDamage", true),
+    CREEPER_DAMAGE(Boolean.class, "doesCreeperDamage", true),
+    GHAST_DAMAGE(Boolean.class, "doesGhastDamage", true),
     ;
 
     private Class<?> type;

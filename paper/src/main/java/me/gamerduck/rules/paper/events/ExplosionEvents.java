@@ -19,19 +19,19 @@ public class ExplosionEvents implements Listener {
             case CREEPER -> {
                 if (!gameRules.gameRuleValueBool(e.getLocation().getWorld(), GameRule.CREEPER_GRIEFING)) {
                     e.setCancelled(true);
-                    e.getLocation().getWorld().createExplosion(e.getLocation(), 2, false, false);
+                    e.getLocation().getWorld().createExplosion(e.getLocation(), e.getYield(), false, false);
                 }
             }
             case TNT, TNT_MINECART -> {
                 if (!gameRules.gameRuleValueBool(e.getLocation().getWorld(), GameRule.TNT_EXPLOSION)) {
                     e.setCancelled(true);
-                    e.getLocation().getWorld().createExplosion(e.getLocation(), 2, false, false);
+                    e.getLocation().getWorld().createExplosion(e.getLocation(), e.getYield(), false, false);
                 }
             }
             case END_CRYSTAL -> {
-                if (!gameRules.gameRuleValueBool(e.getLocation().getWorld(), GameRule.CRYSTAL_EXPLOSION)) {
+                if (!gameRules.gameRuleValueBool(e.getLocation().getWorld(), GameRule.CRYSTAL_GRIEFING)) {
                     e.setCancelled(true);
-                    e.getLocation().getWorld().createExplosion(e.getLocation(), 2, false, false);
+                    e.getLocation().getWorld().createExplosion(e.getLocation(), e.getYield(), false, false);
                 }
             }
             case FIREBALL, SMALL_FIREBALL -> {
@@ -39,7 +39,7 @@ public class ExplosionEvents implements Listener {
                 if (proj.getShooter() instanceof Ghast) {
                     if (!gameRules.gameRuleValueBool(e.getLocation().getWorld(), GameRule.GHAST_GRIEFING)) {
                         e.setCancelled(true);
-                        e.getLocation().getWorld().createExplosion(e.getLocation(), 2, false, false);
+                        e.getLocation().getWorld().createExplosion(e.getLocation(), e.getYield(), false, false);
                     }
                 }
             }
@@ -48,10 +48,14 @@ public class ExplosionEvents implements Listener {
 
     @EventHandler
     public void onBlockExplosion(BlockExplodeEvent e) {
-        if (e.getBlock().getType().toString().contains("BED"))
-            e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.BED_EXPLOSION));
-        else if (e.getBlock().getType() == Material.RESPAWN_ANCHOR)
-            e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.RESPAWN_ANCHOR_EXPLOSION));
+        if (e.getBlock().getType().toString().contains("BED") && !gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.BED_GRIEFING)) {
+            e.setCancelled(true);
+            e.getBlock().getWorld().createExplosion(e.getBlock().getLocation(), e.getYield(), false, false);
+        }
+        else if (e.getBlock().getType() == Material.RESPAWN_ANCHOR && !gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.RESPAWN_ANCHOR_GRIEFING)) {
+            e.setCancelled(true);
+            e.getBlock().getWorld().createExplosion(e.getBlock().getLocation(), e.getYield(), false, false);
+        }
     }
 
 }

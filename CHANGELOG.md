@@ -1,3 +1,28 @@
-# Fixed Fabric
+# More Gamerules!
+Added 6 new gamerules all based around explosions doing damage to entities around them.
+These new gamerules work alongside of the other gamerules that stop these sources from griefing
 
-I had forgot to update the fabric.mod.json which tells the server what version the mod is so it wasn't loading on 1.21.8, this has been fixed!
+For example:
+If you disable doesTntDamage and enable doesTntGrief, it will destroy blocks but not damage any entities nearby.
+
+** For now paper does not work as there is no simple way to stop damage from explosion sources **
+
+| GameRule                   | Fabric | Paper | NeoForge |
+|----------------------------|--------|-------|----------|
+| doesTntDamage              | X      |       | X        |
+| doesCrystalDamage          | X      |       | X        |
+| doesBedDamage              | X      |       | X        |
+| doesRespawnAnchorDamage    | X      |       | X        |
+| doesCreeperDamage          | X      |       | X        |
+| doesGhastDamage            | X      |       | X        |
+
+## Some minor bug fixes:
+#### NeoForge
+1. Ghast griefing was set improperly to listen to the TNT Griefing gamerule
+2. Respawn anchor griefing was set improperly to listen to the TNT Griefing gamerule
+3. End crystal griefing was set improperly to listen to the TNT Griefing gamerule
+
+#### Paper
+1. canZombiesBreakDoors didn't focus on zombies only so any entities that broke doors would be cancelled, this has been fixed
+2. doesBedGrief didn't create a new explosion and only stopped the old one
+3. doesRespawnAnchorGrief didn't create a new explosion and only stopped the old one

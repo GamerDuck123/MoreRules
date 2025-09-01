@@ -17,6 +17,6 @@ public abstract class EndCrystalEntityMixin {
     @Redirect(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;createExplosion(Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/damage/DamageSource;Lnet/minecraft/world/explosion/ExplosionBehavior;DDDFZLnet/minecraft/world/World$ExplosionSourceType;)V"))
     private void inject(ServerWorld instance, Entity entity, DamageSource damageSource, ExplosionBehavior explosionBehavior, double x, double y, double z, float v, boolean b, World.ExplosionSourceType explosionSourceType) {
         instance.createExplosion(entity, null,
-                new NoExplosionBehavior(instance, GameRule.CRYSTAL_EXPLOSION), x, y, z, v, b, explosionSourceType);
+                new NoExplosionBehavior(instance, GameRule.CRYSTAL_GRIEFING, GameRule.CRYSTAL_DAMAGE), x, y, z, v, b, explosionSourceType);
     }
 }

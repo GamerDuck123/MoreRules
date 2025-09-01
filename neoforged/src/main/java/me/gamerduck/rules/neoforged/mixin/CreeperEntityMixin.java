@@ -15,6 +15,6 @@ public abstract class CreeperEntityMixin {
     @Redirect(method = "explodeCreeper", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;explode(Lnet/minecraft/world/entity/Entity;DDDFLnet/minecraft/world/level/Level$ExplosionInteraction;)V"))
     private void inject(ServerLevel instance, Entity entity, double x, double y, double z, float v, Level.ExplosionInteraction explosionInteraction) {
         instance.explode(entity, null,
-                new NoExplosionBehavior(instance, GameRule.CREEPER_GRIEFING), x, y, z, v, false, explosionInteraction);
+                new NoExplosionBehavior(instance, GameRule.CREEPER_GRIEFING, GameRule.CREEPER_DAMAGE), x, y, z, v, false, explosionInteraction);
     }
 }

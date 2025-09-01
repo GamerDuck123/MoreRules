@@ -17,7 +17,7 @@ public abstract class TntEntityMixin {
     @Redirect(method = "explode", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;explode(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/damagesource/DamageSource;Lnet/minecraft/world/level/ExplosionDamageCalculator;DDDFZLnet/minecraft/world/level/Level$ExplosionInteraction;)V"))
     private void injected(Level instance, Entity source, DamageSource damageSource, ExplosionDamageCalculator damageCalculator, double x, double y, double z, float radius, boolean fire, Level.ExplosionInteraction explosionInteraction) {
         instance.explode(source, null,
-                new NoExplosionBehavior(instance, GameRule.TNT_EXPLOSION), x, y, z, radius, false, explosionInteraction);
+                new NoExplosionBehavior(instance, GameRule.TNT_EXPLOSION, GameRule.TNT_DAMAGE), x, y, z, radius, false, explosionInteraction);
     }
 
 }
