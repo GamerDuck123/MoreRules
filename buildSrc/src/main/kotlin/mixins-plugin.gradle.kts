@@ -1,7 +1,8 @@
 plugins {
     id("root-plugin")
 
-    id("fabric-loom")
+    id("idea")
+    id("net.neoforged.moddev")
 }
 
 repositories {

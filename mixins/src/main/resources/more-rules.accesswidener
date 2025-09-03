@@ -1,0 +1,9 @@
+accessWidener v2 named
+
+accessible class net/minecraft/world/entity/monster/EnderMan$EndermanLeaveBlockGoal
+accessible class net/minecraft/world/entity/monster/EnderMan$EndermanTakeBlockGoal
+accessible field net/minecraft/world/entity/monster/EnderMan$EndermanTakeBlockGoal enderman Lnet/minecraft/world/entity/monster/EnderMan;
+accessible field net/minecraft/world/entity/monster/EnderMan$EndermanLeaveBlockGoal enderman Lnet/minecraft/world/entity/monster/EnderMan;
+accessible field net/minecraft/world/entity/ai/goal/DoorInteractGoal mob Lnet/minecraft/world/entity/Mob;
+
+accessible method net/minecraft/world/level/block/IceBlock melt (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V

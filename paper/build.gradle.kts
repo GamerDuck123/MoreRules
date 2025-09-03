@@ -3,6 +3,10 @@ dependencies {
     compileOnly(libs.brigadier)
 }
 
+modrinth {
+    uploadFile.set(tasks.jar)
+}
+
 tasks {
     assemble {
         dependsOn(reobfJar)

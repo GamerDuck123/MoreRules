@@ -10,6 +10,7 @@ brigadier = "1.2.9"
 gson = "2.10.1"
 parchment_mappings="2025.07.20"
 neo="21.8.39"
+mixin="0.8.5"
 
 [libraries]
 
@@ -18,3 +19,5 @@ fabric_loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = 
 fabric_api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "api" }
 brigadier = { group = "com.mojang", name = "brigadier", version.ref = "brigadier" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+#mixin = { group = "org.spongepowered", name = "mixin", version.ref = "mixin" }
+#parchment = { group = "org.parchmentmc.data", name = "parchment-1.21.8", version.ref = "parchment_mappings" }

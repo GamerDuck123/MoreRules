@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "package": "me.gamerduck.rules.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AnvilInventoryMixin",
+    "BedBlockMixin",
+    "CoralBlockMixin",
+    "CreeperEntityMixin",
+    "EndCrystalEntityMixin",
+    "FarmlandBlockMixin",
+    "FireballEntityMixin",
+    "GameRulesCommandMixin",
+    "IceBlockMixin",
+    "PickupBlockGoalMixin",
+    "PigMixin",
+    "PlaceBlockGoalMixin",
+    "RespawnAnchorBlockMixin",
+    "SculkCatalystMixin",
+    "SnowBlockMixin",
+    "TntEntityMixin",
+    "VillagerMixin",
+    "BreakDoorGoalMixin",
+    "ZombieMixin",
+    "ZombieVillagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
