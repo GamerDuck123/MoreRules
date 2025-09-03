@@ -12,15 +12,15 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.level.LevelEvent;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
+import java.io.File;
+
+import static me.gamerduck.rules.MixinsVariable.gameRules;
+
 @Mod(MoreRulesMod.MODID)
 public class MoreRulesMod {
-    // Define mod id in a common place for everything to reference
-    public static final String MODID = "test";
-    // Directly reference a slf4j logger
+    public static final String MODID = "morerules";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static final GameRules<Level> gameRules = new GameRules<Level>();
     public MoreRulesMod() {
         NeoForge.EVENT_BUS.register(this);
 
@@ -29,10 +29,10 @@ public class MoreRulesMod {
 
     @SubscribeEvent
     public void onWorldLoad(LevelEvent.Load event) {
-//        gameRules.deSerializeData(event.getLevel(), new File("mods/MoreRules", world.getRegistryKey().toString() + ".json"));
+        gameRules.deSerializeData((Level)event.getLevel(), new File("mods/MoreRules", event.getLevel().toString() + ".json"));
     }
     @SubscribeEvent
     public void onWorldUnload(LevelEvent.Unload event) {
-//        gameRules.serializeData(event.getLevel(), new File("mods/MoreRules", event.getLevel().registryAccess().getRegistryKey().toString() + ".json"));
+        gameRules.serializeData((Level)event.getLevel(), new File("mods/MoreRules", event.getLevel().toString() + ".json"));
     }
 }

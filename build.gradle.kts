@@ -27,7 +27,7 @@ modrinth {
     versionNumber.set(project.version as String)
     versionType.set("release")
     uploadFile.set(tasks.jar)
-    gameVersions.addAll("1.21.8")
+    gameVersions.addAll(libs.versions.minecraft.get())
     loaders.addAll("fabric", "paper", "spigot", "bukkit", "purpur", "neoforge")
     syncBodyFrom.set(rootProject.file("README.md").readText())
     changelog.set(rootProject.file("CHANGELOG.md").readText())
@@ -42,7 +42,8 @@ allprojects {
         ":fabric",
         ":paper",
         ":neoforged",
-        ":common"
+        ":common",
+        ":mixins"
     ).forEach {
         project(it) {
             version = rootProject.version
@@ -64,13 +65,18 @@ allprojects {
                 apply(plugin = "root-plugin")
             }
 
+
+            if (this.name == "mixins") {
+                apply(plugin = "mixins-plugin")
+            }
+
             base {
                 archivesName.set("${rootProject.name}-${project.name}")
             }
 
             if (this.name != "common") {
                 dependencies {
-                    compileOnly(project(":common"))
+                    implementation(project(":common"))
                 }
             }
 
@@ -81,9 +87,11 @@ allprojects {
 tasks {
     assemble {
         subprojects.forEach { project ->
-            dependsOn(":${project.name}:clean")
-            dependsOn(":${project.name}:processResources")
-            dependsOn(":${project.name}:build")
+            if (project.name != "mixins") {
+                dependsOn(":${project.name}:clean")
+                dependsOn(":${project.name}:processResources")
+                dependsOn(":${project.name}:build")
+            }
         }
 
         finalizedBy(combine)

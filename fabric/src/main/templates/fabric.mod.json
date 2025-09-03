@@ -5,7 +5,7 @@
 	"name": "${name}",
 	"description": "${description}",
 	"authors": ["${author}"],
-	"accessWidener" : "${modid}.fabric.accesswidener",
+	"accessWidener" : "${modid}.accesswidener",
 	"contact": {
 		"homepage": "${website}",
 		"sources": "${sources}",
@@ -18,7 +18,7 @@
 		"main": ["${group}.MoreRulesMod"]
 	},
 	"mixins": [
-		"${modid}.fabric.mixins.json"
+		"${modid}.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=${fabricLoaderVersion}",

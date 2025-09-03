@@ -1,15 +1,30 @@
 dependencies {
     minecraft(libs.minecraft)
 
-    mappings("net.fabricmc:yarn:${libs.versions.yarn.get()}:v2")
-
+    mappings(loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-1.21.8:2025.07.20@zip")
+    })
     modImplementation(libs.fabric.loader)
     modImplementation(libs.fabric.api)
 }
 
+sourceSets {
+    main {
+        java {
+            srcDir("../mixins/src/main/java")
+            srcDir("../common/src/main/java")
+        }
+        resources {
+            srcDir("../mixins/src/main/resources")
+            srcDir("../common/src/main/resources")
+        }
+    }
+}
+
 loom {
 //    splitEnvironmentSourceSets()
-    accessWidenerPath.set(file("src/main/resources/${project.property("modid")}.fabric.accesswidener"))
+    accessWidenerPath.set(file("../mixins/src/main/resources/${project.property("modid")}.accesswidener"))
 
     mods {
         create(project.property("modid").toString()) {
@@ -39,6 +54,7 @@ tasks {
         from("src/main/templates") {
             listOf(
                 "fabric.mod.json",
+                "${project.property("modid")}.fabric.mixins.json",
             ).forEach {
                 filesMatching(it) {
                     expand(props)
