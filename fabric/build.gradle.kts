@@ -9,6 +9,10 @@ dependencies {
     modImplementation(libs.fabric.api)
 }
 
+modrinth {
+    uploadFile.set(project.tasks.remapJar)
+}
+
 sourceSets {
     main {
         java {
@@ -54,7 +58,6 @@ tasks {
         from("src/main/templates") {
             listOf(
                 "fabric.mod.json",
-                "${project.property("modid")}.fabric.mixins.json",
             ).forEach {
                 filesMatching(it) {
                     expand(props)

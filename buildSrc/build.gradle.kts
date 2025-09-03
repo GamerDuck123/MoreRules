@@ -12,4 +12,5 @@ dependencies {
     implementation("io.papermc.paperweight:paperweight-userdev:${rootProject.property("paper_weight")}")
     implementation("net.neoforged:moddev-gradle:${rootProject.property("neo_forge")}")
     implementation("fabric-loom:fabric-loom.gradle.plugin:${rootProject.property("fabric_loom")}")
+    implementation("com.modrinth.minotaur:Minotaur:${rootProject.property("minotaur")}")
 }

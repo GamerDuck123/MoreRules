@@ -3,6 +3,7 @@ plugins {
     `maven-publish`
 
     id("com.gradleup.shadow")
+    id("com.modrinth.minotaur")
 }
 
 repositories {

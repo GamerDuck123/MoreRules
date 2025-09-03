@@ -13,11 +13,15 @@ neoForge {
     }
 }
 
-// Sets up a dependency configuration called 'localRuntime'.
+modrinth {
+    uploadFile.set(tasks.jar)
+}
+
 val localRuntime: Configuration by configurations.creating
 configurations {
     runtimeClasspath.get().extendsFrom(localRuntime)
 }
+
 sourceSets {
     main {
         java {
@@ -30,6 +34,7 @@ sourceSets {
         }
     }
 }
+
 tasks {
     processResources {
         val props = mapOf(
