@@ -50,7 +50,6 @@ allprojects {
             apply(plugin = "root-plugin")
         }
 
-
         if (this.name == "mixins") {
             apply(plugin = "mixins-plugin")
         }

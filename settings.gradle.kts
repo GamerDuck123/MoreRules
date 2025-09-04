@@ -19,3 +19,4 @@ pluginManagement {
 }
 include("mixins")
 include("forge")
+include("forge")
