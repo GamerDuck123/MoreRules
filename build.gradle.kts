@@ -38,8 +38,8 @@ allprojects {
             apply(plugin = "fabric-plugin")
         }
 
-        if (this.name == "neoforged") {
-            apply(plugin = "neo-forge")
+        if (this.name == "neoforge") {
+            apply(plugin = "neoforge-plugin")
         }
 
         if (this.name == "common") {
@@ -65,7 +65,7 @@ allprojects {
                     loaders.addAll(
                         when (name) {
                             "fabric" -> listOf("fabric")
-                            "neoforged" -> listOf("neoforge")
+                            "neoforge" -> listOf("neoforge")
                             "paper" -> listOf("paper", "spigot", "bukkit", "purpur")
                             else -> throw IllegalStateException("Unknown loader $name")
                         }
@@ -87,7 +87,7 @@ allprojects {
 
 tasks {
     publish {
-        dependsOn(subprojects.filter { it.name in listOf("fabric", "neoforged", "paper") }.map { it.tasks.named("modrinth") })
+        dependsOn(subprojects.filter { it.name in listOf("fabric", "neoforge", "paper") }.map { it.tasks.named("modrinth") })
     }
 
     assemble {
