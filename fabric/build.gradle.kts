@@ -47,11 +47,6 @@ tasks.named<JavaCompile>("compileJava") {
     dependsOn("copyCommonSources")
 }
 
-tasks.named<ProcessResources>("processResources") {
-    dependsOn("copyCommonSources")
-}
-
-
 loom {
 //    splitEnvironmentSourceSets()
     accessWidenerPath.set(file("../mixins/src/main/resources/${project.property("modid")}.accesswidener"))
@@ -66,6 +61,7 @@ loom {
 
 tasks {
     processResources {
+        dependsOn("copyCommonSources")
         val props = mapOf(
             "name" to rootProject.name,
             "group" to project.group,

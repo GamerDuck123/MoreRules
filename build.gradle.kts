@@ -62,7 +62,17 @@ allprojects {
     }
 
 }
-
+configure(subprojects.filter { it.name in listOf("common", "mixins") }) {
+    tasks.withType<JavaCompile>().configureEach {
+        enabled = false
+    }
+    tasks.named("jar").configure {
+        enabled = false
+    }
+    tasks.named("build").configure {
+        enabled = false
+    }
+}
 
 tasks {
     publish {

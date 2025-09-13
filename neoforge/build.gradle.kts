@@ -59,10 +59,6 @@ tasks.named<JavaCompile>("compileJava") {
     dependsOn("copyCommonSources")
 }
 
-tasks.named<ProcessResources>("processResources") {
-    dependsOn("copyCommonSources")
-}
-
 tasks.named<CreateMinecraftArtifacts>("createMinecraftArtifacts") {
     dependsOn("copyCommonSources")
 }
@@ -70,6 +66,7 @@ tasks.named<CreateMinecraftArtifacts>("createMinecraftArtifacts") {
 
 tasks {
     processResources {
+        dependsOn("copyCommonSources")
         val props = mapOf(
             "minecraft_version" to libs.versions.minecraft.get(),
             "minecraftVersionRange" to "[${libs.versions.minecraft.get()}]",

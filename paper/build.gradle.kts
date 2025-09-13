@@ -34,15 +34,12 @@ tasks.named<JavaCompile>("compileJava") {
     dependsOn("copyCommonSources")
 }
 
-tasks.named<ProcessResources>("processResources") {
-    dependsOn("copyCommonSources")
-}
-
 tasks {
     assemble {
         dependsOn(reobfJar)
     }
     processResources {
+        dependsOn("copyCommonSources")
         val props = mapOf(
             "name" to rootProject.name,
             "group" to project.group,
