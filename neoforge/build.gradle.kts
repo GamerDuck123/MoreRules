@@ -1,3 +1,5 @@
+import net.neoforged.nfrtgradle.CreateMinecraftArtifacts
+
 neoForge {
     version = libs.versions.neo.get()
 
@@ -22,18 +24,49 @@ configurations {
     runtimeClasspath.get().extendsFrom(localRuntime)
 }
 
+
+tasks.register<Copy>("copyCommonSources") {
+    from("$rootDir/mixins/src/main/java") {
+        into("mixins/java")
+    }
+    from("$rootDir/common/src/main/java") {
+        into("common/java")
+    }
+    from("$rootDir/mixins/src/main/resources") {
+        into("mixins/resources")
+    }
+    from("$rootDir/common/src/main/resources") {
+        into("common/resources")
+    }
+
+    into("${layout.buildDirectory}/generated/sources")
+}
+
 sourceSets {
     main {
         java {
-            srcDir("../mixins/src/main/java")
-            srcDir("../common/src/main/java")
+            srcDir("${layout.buildDirectory}/generated/sources/mixins/java")
+            srcDir("${layout.buildDirectory}/generated/sources/common/java")
         }
         resources {
-            srcDir("../mixins/src/main/resources")
-            srcDir("../common/src/main/resources")
+            srcDir("${layout.buildDirectory}/generated/sources/mixins/resources")
+            srcDir("${layout.buildDirectory}/generated/sources/common/resources")
         }
     }
 }
+
+tasks.named<JavaCompile>("compileJava") {
+    dependsOn("copyCommonSources")
+}
+
+tasks.named<ProcessResources>("processResources") {
+    dependsOn("copyCommonSources")
+}
+
+tasks.named<CreateMinecraftArtifacts>("createMinecraftArtifacts") {
+    dependsOn("copyCommonSources")
+}
+
 
 tasks {
     processResources {

@@ -7,6 +7,37 @@ modrinth {
     uploadFile.set(tasks.jar)
 }
 
+
+tasks.register<Copy>("copyCommonSources") {
+    from("$rootDir/common/src/main/java") {
+        into("common/java")
+    }
+    from("$rootDir/common/src/main/resources") {
+        into("common/resources")
+    }
+
+    into("${layout.buildDirectory}/generated/sources")
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir("${layout.buildDirectory}/generated/sources/common/java")
+        }
+        resources {
+            srcDir("${layout.buildDirectory}/generated/sources/common/resources")
+        }
+    }
+}
+
+tasks.named<JavaCompile>("compileJava") {
+    dependsOn("copyCommonSources")
+}
+
+tasks.named<ProcessResources>("processResources") {
+    dependsOn("copyCommonSources")
+}
+
 tasks {
     assemble {
         dependsOn(reobfJar)

@@ -8,23 +8,6 @@ rootProject.group = project.property("group") as String
 rootProject.version = project.property("version") as String
 rootProject.description = project.property("description") as String
 
-//val combine = tasks.register<Jar>("combine") {
-//    mustRunAfter("build")
-//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-//    val jarFiles = subprojects.flatMap { subproject ->
-//        files(subproject.layout.buildDirectory.file("libs/${rootProject.name}-${subproject.name}-${subproject.version}.jar").get())
-//    }.filter { it.name != "MANIFEST.MF" }.map { file ->
-//        if (file.isDirectory) file else zipTree(file)
-//    }
-//
-//    from(jarFiles)
-//}
-
-//tasks.named("modrinth") {
-//    dependsOn(tasks.named("combine"))
-//}
-
-
 allprojects {
     if (this.name != rootProject.name) {
         project.version = rootProject.version
@@ -56,9 +39,6 @@ allprojects {
         }
 
         if (this.name != "common") {
-            dependencies {
-                implementation(project(":common"))
-            }
             if (this.name != "mixins") {
                 modrinth {
                     versionNumber.set("${version as String}-${name}")
@@ -70,7 +50,6 @@ allprojects {
                             else -> throw IllegalStateException("Unknown loader $name")
                         }
                     )
-                    uploadFile.set(tasks.jar)
                     token.set(System.getenv("MODRINTH_TOKEN"))
                     projectId.set("DaNtdRka")
                     versionType.set("release")
@@ -87,18 +66,20 @@ allprojects {
 
 tasks {
     publish {
-        dependsOn(subprojects.filter { it.name in listOf("fabric", "neoforge", "paper") }.map { it.tasks.named("modrinth") })
+        dependsOn(subprojects.filter { it.name !in listOf("common", "mixins") }.map { it.tasks.named("modrinth") })
     }
 
     assemble {
-        subprojects.forEach { project ->
-            if (project.name != "mixins") {
-                dependsOn(":${project.name}:clean")
-                dependsOn(":${project.name}:processResources")
-                dependsOn(":${project.name}:build")
-            }
-        }
-
-//        finalizedBy(combine)
+        dependsOn(subprojects.filter { it.name !in listOf("common", "mixins") }.map {
+            it.tasks.named("clean")
+            it.tasks.named("copyCommonSources")
+            it.tasks.named("processResources")
+            it.tasks.named("build")
+        })
+    }
+    register<Copy>("copyCommonSources") {
+        dependsOn(subprojects.filter { it.name !in listOf("common", "mixins") }.map {
+            it.tasks.named("copyCommonSources")
+        })
     }
 }
