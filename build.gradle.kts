@@ -15,18 +15,24 @@ allprojects {
 
         if (this.name == "paper") {
             apply(plugin = "paper-plugin")
+            apply(plugin = "modrinth-plugin")
+            apply(plugin = "hangar-plugin")
         }
 
         if (this.name == "fabric") {
             apply(plugin = "fabric-plugin")
+            apply(plugin = "modrinth-plugin")
+            apply(plugin = "curseforge-plugin")
         }
 
         if (this.name == "neoforge") {
             apply(plugin = "neoforge-plugin")
+            apply(plugin = "modrinth-plugin")
+            apply(plugin = "curseforge-plugin")
         }
 
         if (this.name == "common") {
-            apply(plugin = "root-plugin")
+            apply(plugin = "common-plugin")
         }
 
 
@@ -38,40 +44,8 @@ allprojects {
             archivesName.set("${rootProject.name}-${name}")
         }
 
-        if (this.name != "common") {
-            if (this.name != "mixins") {
-                modrinth {
-                    versionNumber.set("${version as String}-${name}")
-                    loaders.addAll(
-                        when (name) {
-                            "fabric" -> listOf("fabric")
-                            "neoforge" -> listOf("neoforge")
-                            "paper" -> listOf("paper", "spigot", "bukkit", "purpur")
-                            else -> throw IllegalStateException("Unknown loader $name")
-                        }
-                    )
-                    token.set(System.getenv("MODRINTH_TOKEN"))
-                    projectId.set("DaNtdRka")
-                    versionType.set("release")
-                    gameVersions.addAll("1.21.8")
-                    syncBodyFrom.set(rootProject.file("README.md").readText())
-                    changelog.set(rootProject.file("CHANGELOG.md").readText())
-                }
-            }
-        }
     }
 
-}
-configure(subprojects.filter { it.name in listOf("common", "mixins") }) {
-    tasks.withType<JavaCompile>().configureEach {
-        enabled = false
-    }
-    tasks.named("jar").configure {
-        enabled = false
-    }
-    tasks.named("build").configure {
-        enabled = false
-    }
 }
 
 tasks {
