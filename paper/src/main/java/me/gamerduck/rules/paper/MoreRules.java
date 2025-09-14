@@ -3,9 +3,8 @@ package me.gamerduck.rules.paper;
 import me.gamerduck.rules.common.GameRules;
 import me.gamerduck.rules.paper.commands.GameRuleCommand;
 import me.gamerduck.rules.paper.events.BlockChangeEvents;
+import me.gamerduck.rules.paper.events.EntityEvents;
 import me.gamerduck.rules.paper.events.ExplosionEvents;
-import me.gamerduck.rules.paper.events.PickupPlaceEvents;
-import net.minecraft.world.level.EntityBasedExplosionDamageCalculator;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;
@@ -32,8 +31,8 @@ public class MoreRules extends JavaPlugin implements Listener {
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new ExplosionEvents(), this);
-        getServer().getPluginManager().registerEvents(new PickupPlaceEvents(), this);
         getServer().getPluginManager().registerEvents(new BlockChangeEvents(), this);
+        getServer().getPluginManager().registerEvents(new EntityEvents(), this);
         GameRuleCommand.inject();
 
         Bukkit.getWorlds().forEach(w ->

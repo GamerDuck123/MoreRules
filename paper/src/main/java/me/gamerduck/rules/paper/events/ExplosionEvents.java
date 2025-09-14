@@ -97,19 +97,6 @@ public class ExplosionEvents implements Listener {
         }
     }
 
-    @EventHandler
-    public void onSlimeSplitEvent(SlimeSplitEvent e) {
-        if (!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.SLIMES_SPLIT)) {
-            e.setCancelled(true);
-        }
-    }
-
-    @EventHandler
-    public void onSlimeSplitEvent(EntityChangeBlockEvent e) {
-        if (e.getEntityType().equals(EntityType.SILVERFISH) && !gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.SILVERFISH_INFEST)) {
-            e.setCancelled(true);
-        }
-    }
 
     @EventHandler
     public void onBlockExplosion(BlockExplodeEvent e) {

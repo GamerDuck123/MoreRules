@@ -3,7 +3,6 @@
   "package": "me.gamerduck.rules.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AnvilInventoryMixin",
     "BedBlockMixin",
     "BreakDoorGoalMixin",
     "CoralBlockMixin",
@@ -28,10 +27,7 @@
     "WitherBossMixin",
     "WitherSkullEntityMixin",
     "ZombieMixin",
-    "ZombieVillagerMixin",
-    "accessors.EndermanLeaveBlockGoalAccessor",
-    "accessors.EndermanTakeBlockGoalAccessor",
-    "accessors.EntityAccessor"
+    "ZombieVillagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
