@@ -1,3 +1,12 @@
-# Version 0.0.7-Minor
+# v0.0.8
 
-This update just removes a single test message I forgot to move before.
+| GameRule               | Fabric | Paper | NeoForge |
+|------------------------|--------|-------|----------|
+| doesWitherSkullGrief   | X      | X     | X        |
+| doesWitherSkullDamage  | X      | X     | X        |
+| doesWitherGrief        | X      | X     | X        |
+| doesWitherDamage       | X      | X     | X        |
+| doesDragonGrief        | X      |       | X        |
+| doesDragonDamage       | X      |       | X        |
+| doSlimesSplit          | X      | X     | X        |
+| doSilverfishInfest     | X      | X     | X        |

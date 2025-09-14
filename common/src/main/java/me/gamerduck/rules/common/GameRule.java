@@ -1,7 +1,6 @@
 package me.gamerduck.rules.common;
 
 import java.util.stream.Stream;
-
 public enum GameRule {
     ENDERMEN_GRIEFING(Boolean.class, "doesEnderManGrief", true),
     CROP_TRAMPLE(Boolean.class, "doCropTrample", true),
@@ -16,7 +15,6 @@ public enum GameRule {
     VILLAGER_ZOMBIE_CONVERSIONS(Boolean.class, "doVillagerZombieConversion", true),
     ZOMBIE_VILLAGER_CONVERSIONS(Boolean.class, "doZombieVillagerConversion", true),
     PIG_PIGLIN_CONVERSIONS(Boolean.class, "doPigPiglinConversion", true),
-    ANVIL_COST_TOO_MUCH(Boolean.class, "canAnvilCostTooMuch", true),
     SCULK_SPREADING(Boolean.class, "canSculkSpread", true),
     LIGHT_MELT_ICE(Boolean.class, "canLightMeltIce", true),
     LIGHT_MELT_SNOW(Boolean.class, "canLightMeltSnow", true),
@@ -28,6 +26,34 @@ public enum GameRule {
     RESPAWN_ANCHOR_DAMAGE(Boolean.class, "doesRespawnAnchorDamage", true),
     CREEPER_DAMAGE(Boolean.class, "doesCreeperDamage", true),
     GHAST_DAMAGE(Boolean.class, "doesGhastDamage", true),
+    WITHER_GRIEFING(Boolean.class, "doesWitherGrief", true),
+    WITHER_DAMAGE(Boolean.class, "doesWitherDamage", true),
+    WITHER_SKULL_GRIEFING(Boolean.class, "doesWitherSkullGrief", true),
+    WITHER_SKULL_DAMAGE(Boolean.class, "doesWitherSkullDamage", true),
+    DRAGON_GRIEFING(Boolean.class, "doesDragonGrief", true),
+    DRAGON_DAMAGE(Boolean.class, "doesDragonDamage", true),
+    SLIMES_SPLIT(Boolean.class, "doSlimesSplit", true),
+    SILVERFISH_INFEST(Boolean.class, "doSilverfishInfest", true),
+
+    PHANTOMS_SPAWN(Boolean.class, "doPhantomsSpawn", true),
+    LEAVES_DECAY(Boolean.class, "doLeavesDecay", true),
+    FIRE_DAMAGE(Boolean.class, "doesFireDamage", true),
+    MOSS_SPREAD(Boolean.class, "doesMossSpread", true),
+    GRASS_SPREAD(Boolean.class, "doesGrassSpread", true),
+    MYCELIUM_SPREAD(Boolean.class, "doesMyceliumSpread", true),
+    VINES_SPREAD(Boolean.class, "doVinesSpread", true),
+    PROJECTILE_PICKUP(Boolean.class, "canPickupProjectiles", true),
+    PLAYER_HUNGER(Boolean.class, "doesPlayerHunger", true),
+    PLAYER_FALL_DAMAGE(Boolean.class, "doesPlayerFallDamage", true),
+    PLAYER_DROWN(Boolean.class, "doesPlayerDrown", true),
+    PET_FRIENDLY_FIRE(Boolean.class, "doPetFriendlyFire", true),
+    ITEMS_DESPAWN(Boolean.class, "doItemsDespawn", true),
+    NEW_DRAGON_EGGS(Boolean.class, "doDragonEggsDropOnRespawn", false),
+    ANVIL_COST_TOO_MUCH(Boolean.class, "canAnvilCostTooMuch", true),
+    ENDER_PEARL_DAMAGE(Boolean.class, "doEnderPearlsDamage", true),
+    INFINITY_NEED_ARROW(Boolean.class, "doesInfinityNeedArrow", true),
+    PLAYERS_HEAD_DROP(Boolean.class, "doPlayerHeadsDrop", false),
+    MOB_HEAD_DROP(Boolean.class, "doMobHeadDrop", false),
     ;
 
     private Class<?> type;

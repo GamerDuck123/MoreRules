@@ -11,12 +11,17 @@ import org.bukkit.Material;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.block.CraftBlock;
 import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.entity.CraftSilverfish;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Ghast;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockExplodeEvent;
+import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.entity.SlimeSplitEvent;
 
 import static me.gamerduck.rules.paper.MoreRules.gameRules;
 
@@ -71,6 +76,38 @@ public class ExplosionEvents implements Listener {
                             x, y, z, yield, true, Level.ExplosionInteraction.MOB);
                 }
             }
+            case WITHER_SKULL -> {
+                if (!gameRules.gameRuleValueBool(craftWorld, GameRule.WITHER_SKULL_GRIEFING)
+                        || !gameRules.gameRuleValueBool(craftWorld, GameRule.WITHER_SKULL_DAMAGE)) {
+                    e.setCancelled(true);
+                    world.explode(entity, Explosion.getDefaultDamageSource(world, entity),
+                            new NoExplosionBehavior(craftWorld, GameRule.WITHER_SKULL_GRIEFING, GameRule.WITHER_SKULL_DAMAGE),
+                            x, y, z, yield, true, Level.ExplosionInteraction.STANDARD);
+                }
+            }
+            case WITHER -> {
+                if (!gameRules.gameRuleValueBool(craftWorld, GameRule.WITHER_GRIEFING)
+                        || !gameRules.gameRuleValueBool(craftWorld, GameRule.WITHER_DAMAGE)) {
+                    e.setCancelled(true);
+                    world.explode(entity, Explosion.getDefaultDamageSource(world, entity),
+                            new NoExplosionBehavior(craftWorld, GameRule.WITHER_GRIEFING, GameRule.WITHER_DAMAGE),
+                            x, y, z, yield, true, Level.ExplosionInteraction.STANDARD);
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onSlimeSplitEvent(SlimeSplitEvent e) {
+        if (!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.SLIMES_SPLIT)) {
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onSlimeSplitEvent(EntityChangeBlockEvent e) {
+        if (e.getEntityType().equals(EntityType.SILVERFISH) && !gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.SILVERFISH_INFEST)) {
+            e.setCancelled(true);
         }
     }
 

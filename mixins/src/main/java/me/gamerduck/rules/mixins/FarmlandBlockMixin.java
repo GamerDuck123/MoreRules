@@ -16,13 +16,6 @@ import static me.gamerduck.rules.MixinsVariable.gameRules;
 @Mixin(FarmBlock.class)
 public abstract class FarmlandBlockMixin {
 
-//    @Redirect(method = "onLandedUpon", at = @At(value = "FIELD", target = "Lnet/minecraft/world/World;isClient:Z", opcode = Opcodes.GETFIELD))
-//    private boolean inject(World instance) {
-//
-//        return !instance.isClient && !gameRules.gameRuleValueBool(instance, GameRule.CROP_TRAMPLE);
-//    }
-
-
     @Inject(method = "fallOn", at = @At(value = "HEAD"), cancellable = true)
     private void inject(Level instance, BlockState p_153228_, BlockPos p_153229_, Entity p_153230_, double p_397639_, CallbackInfo ci) {
         if (!instance.isClientSide && !gameRules.gameRuleValueBool(instance, GameRule.CROP_TRAMPLE)) ci.cancel();
