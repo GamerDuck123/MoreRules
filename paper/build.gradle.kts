@@ -10,10 +10,27 @@ modrinth {
 
 tasks.register<Copy>("copyCommonSources") {
     from("$rootDir/common/src/main/java") {
+        exclude("me/gamerduck/rules/mixin/**")
         into("common/java")
     }
     from("$rootDir/common/src/main/resources") {
+        exclude("META-INF/**")
+        exclude("templates/**")
+        exclude("morerules.accesswidener")
+        exclude("morerules.mixins.json")
         into("common/resources")
+    }
+
+    from("$rootDir/common/src/main/resources/templates") {
+        include("morerules.properties")      // only copy that file
+        into("common/resources")      // place it directly into common/resources
+        includeEmptyDirs = false
+
+        filesMatching("**/morerules.properties") {
+            expand(mapOf(
+                "default_path" to "plugins/MoreRules/storage",
+            ))
+        }
     }
 
     into("${layout.buildDirectory}/generated/sources")
@@ -41,10 +58,10 @@ tasks {
     processResources {
         dependsOn("copyCommonSources")
         val props = mapOf(
-            "name" to rootProject.name,
+            "name" to rootProject.property("modid"),
             "group" to project.group,
             "version" to project.version,
-            "description" to project.property("description") as String,
+            "description" to rootProject.property("description") as String,
             "apiVersion" to libs.versions.minecraft.get()
         )
 

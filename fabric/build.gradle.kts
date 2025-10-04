@@ -13,18 +13,29 @@ modrinth {
     uploadFile.set(project.tasks.remapJar)
 }
 
+
+
 tasks.register<Copy>("copyCommonSources") {
-    from("$rootDir/mixins/src/main/java") {
-        into("mixins/java")
-    }
     from("$rootDir/common/src/main/java") {
         into("common/java")
     }
-    from("$rootDir/mixins/src/main/resources") {
-        into("mixins/resources")
-    }
+
+
     from("$rootDir/common/src/main/resources") {
+        exclude("META-INF/**")
+        exclude("templates/**")
         into("common/resources")
+    }
+
+    from("$rootDir/common/src/main/resources/templates") {
+        include("morerules.properties")
+        into("common/resources")
+
+        filesMatching("**/morerules.properties") {
+            expand(mapOf(
+                "default_path" to "mods/MoreRules/storage",
+            ))
+        }
     }
 
     into("${layout.buildDirectory}/generated/sources")
@@ -33,11 +44,9 @@ tasks.register<Copy>("copyCommonSources") {
 sourceSets {
     main {
         java {
-            srcDir("${layout.buildDirectory}/generated/sources/mixins/java")
             srcDir("${layout.buildDirectory}/generated/sources/common/java")
         }
         resources {
-            srcDir("${layout.buildDirectory}/generated/sources/mixins/resources")
             srcDir("${layout.buildDirectory}/generated/sources/common/resources")
         }
     }
@@ -49,7 +58,7 @@ tasks.named<JavaCompile>("compileJava") {
 
 loom {
 //    splitEnvironmentSourceSets()
-    accessWidenerPath.set(file("../mixins/src/main/resources/${project.property("modid")}.accesswidener"))
+    accessWidenerPath.set(file("../common/src/main/resources/${project.property("modid")}.accesswidener"))
 
     mods {
         create(project.property("modid").toString()) {
@@ -63,7 +72,7 @@ tasks {
     processResources {
         dependsOn("copyCommonSources")
         val props = mapOf(
-            "name" to rootProject.name,
+            "name" to rootProject.property("modid"),
             "group" to project.group,
             "version" to project.version,
             "modid" to rootProject.property("modid"),

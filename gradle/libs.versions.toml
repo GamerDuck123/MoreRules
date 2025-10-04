@@ -3,14 +3,15 @@ metadata.format.version = "1.1"
 [versions]
 
 minecraft = "1.21.8"
-yarn = "1.21.8+build.1"
 loader = "0.17.2"
 api = "0.133.0+1.21.8"
 brigadier = "1.2.9"
 gson = "2.10.1"
 parchment_mappings="2025.07.20"
 neo="21.8.39"
-mixin="0.8.5"
+configurate = "4.2.0"
+option = "1.1.0"
+geantyref = "2.0.1"
 
 [libraries]
 
@@ -19,5 +20,7 @@ fabric_loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = 
 fabric_api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "api" }
 brigadier = { group = "com.mojang", name = "brigadier", version.ref = "brigadier" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
-#mixin = { group = "org.spongepowered", name = "mixin", version.ref = "mixin" }
-#parchment = { group = "org.parchmentmc.data", name = "parchment-1.21.8", version.ref = "parchment_mappings" }
+option = { group = "net.kyori", name = "option", version.ref = "option" }
+geantyref = { group = "io.leangen.geantyref", name = "geantyref", version.ref = "geantyref" }
+configurate_hocon = { group = "org.spongepowered", name = "configurate-hocon", version.ref = "configurate" }
+configurate_core = { group = "org.spongepowered", name = "configurate-core", version.ref = "configurate" }

@@ -1,5 +1,4 @@
 import net.neoforged.nfrtgradle.CreateMinecraftArtifacts
-
 neoForge {
     version = libs.versions.neo.get()
 
@@ -14,7 +13,6 @@ neoForge {
         }
     }
 }
-
 modrinth {
     uploadFile.set(tasks.jar)
 }
@@ -26,17 +24,26 @@ configurations {
 
 
 tasks.register<Copy>("copyCommonSources") {
-    from("$rootDir/mixins/src/main/java") {
-        into("mixins/java")
-    }
     from("$rootDir/common/src/main/java") {
+        exclude("me/gamerduck/rules/mixin/mixins/WitherBossMixin.java")
         into("common/java")
     }
-    from("$rootDir/mixins/src/main/resources") {
-        into("mixins/resources")
-    }
     from("$rootDir/common/src/main/resources") {
+        exclude("morerules.accesswidener")
+        exclude("templates/**")
         into("common/resources")
+    }
+
+    from("$rootDir/common/src/main/resources/templates") {
+        include("morerules.properties")
+        into("common/resources")
+        includeEmptyDirs = false
+
+        filesMatching("**/morerules.properties") {
+            expand(mapOf(
+                "default_path" to "mods/MoreRules/storage",
+            ))
+        }
     }
 
     into("${layout.buildDirectory}/generated/sources")
@@ -45,11 +52,9 @@ tasks.register<Copy>("copyCommonSources") {
 sourceSets {
     main {
         java {
-            srcDir("${layout.buildDirectory}/generated/sources/mixins/java")
             srcDir("${layout.buildDirectory}/generated/sources/common/java")
         }
         resources {
-            srcDir("${layout.buildDirectory}/generated/sources/mixins/resources")
             srcDir("${layout.buildDirectory}/generated/sources/common/resources")
         }
     }
@@ -71,10 +76,10 @@ tasks {
             "minecraft_version" to libs.versions.minecraft.get(),
             "minecraftVersionRange" to "[${libs.versions.minecraft.get()}]",
             "neo_version" to libs.versions.neo.get(),
-            "mod_id" to "morerules",
+            "mod_id" to rootProject.property("modid"),
             "mod_name" to rootProject.property("name"),
             "mod_license" to project.property("license"),
-            "mod_version" to project.property("version"),
+            "mod_version" to project.property("version").toString().replace("v", ""),
             "mod_author" to project.property("author"),
             "mod_description" to project.property("description")
         )

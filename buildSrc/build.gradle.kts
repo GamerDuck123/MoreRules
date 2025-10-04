@@ -13,4 +13,5 @@ dependencies {
     implementation("net.neoforged:moddev-gradle:${rootProject.property("neo_forge")}")
     implementation("fabric-loom:fabric-loom.gradle.plugin:${rootProject.property("fabric_loom")}")
     implementation("com.modrinth.minotaur:Minotaur:${rootProject.property("minotaur")}")
+    implementation("net.darkhax.curseforgegradle:net.darkhax.curseforgegradle.gradle.plugin:${rootProject.property("curseforge")}")
 }

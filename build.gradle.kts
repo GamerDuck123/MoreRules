@@ -16,19 +16,19 @@ allprojects {
         if (this.name == "paper") {
             apply(plugin = "paper-plugin")
             apply(plugin = "modrinth-plugin")
-            apply(plugin = "hangar-plugin")
+//            apply(plugin = "hangar-plugin")
         }
 
         if (this.name == "fabric") {
             apply(plugin = "fabric-plugin")
             apply(plugin = "modrinth-plugin")
-            apply(plugin = "curseforge-plugin")
+//            apply(plugin = "curseforge-plugin")
         }
 
         if (this.name == "neoforge") {
             apply(plugin = "neoforge-plugin")
             apply(plugin = "modrinth-plugin")
-            apply(plugin = "curseforge-plugin")
+//            apply(plugin = "curseforge-plugin")
         }
 
         if (this.name == "common") {
