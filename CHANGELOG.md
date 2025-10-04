@@ -17,13 +17,10 @@ For modded instances (NeoForge & Fabric)
 storage-path=mods/MoreRules/storage
 ```
 
-For bukkit instances (Paper)
+For bukkit based instances (Paper)
 ```properties
 storage-path=plugins/MoreRules/storage
 ```
-
-## More Platforms!
-I have been able to properly setup a sponge server locally and thus have been able to add sponge support! Hopefully I will be able to add native support for more similar platforms as well!
 
 ## Better Stability
 Before this update the project was a bit unstable if looked at the wrong way and updates didn't always seem to work on all different platforms and I would constantly be pushing half updates just to fix them. So I've made some major changes to hopefully mitigate this in the future, however please let it be known I only officially support Paper, Fabric and NeoForge, any of their forks (LeafPaper, Quilt, etc.) may or may not work.
