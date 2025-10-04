@@ -6,8 +6,9 @@ modrinth {
     versionNumber.set("${version as String}-${name}")
     loaders.addAll(
         when (name) {
-            "fabric" -> listOf("fabric", "babric", "quilt", "BTA (Babric)")
+            "fabric" -> listOf("fabric", "babric", "quilt")
             "neoforge" -> listOf("neoforge")
+            "sponge" -> listOf("sponge")
             "paper" -> listOf("paper", "spigot", "bukkit", "purpur")
             else -> throw IllegalStateException("Unknown loader $name")
         }

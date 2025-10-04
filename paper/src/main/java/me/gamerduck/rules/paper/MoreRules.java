@@ -51,13 +51,11 @@ public class MoreRules extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onWorldLoad(WorldLoadEvent e) {
-        Bukkit.getWorlds().forEach(w ->
-                gameRules.deSerializeData(w, new File(Config.get("storage-path"), w.getUID().toString() + ".json")));
+        gameRules.deSerializeData(e.getWorld(), new File(Config.get("storage-path"), e.getWorld().getUID().toString() + ".json"));
     }
 
     @EventHandler
     public void onWorldUnLoad(WorldUnloadEvent e) {
-        Bukkit.getWorlds().forEach(w ->
-                gameRules.serializeData(w, new File(Config.get("storage-path"), w.getUID().toString() + ".json")));
+        gameRules.serializeData(e.getWorld(), new File(Config.get("storage-path"), e.getWorld().getUID().toString() + ".json"));
     }
 }

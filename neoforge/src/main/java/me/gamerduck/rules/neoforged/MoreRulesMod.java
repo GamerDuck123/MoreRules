@@ -23,8 +23,6 @@ public class MoreRulesMod {
     public MoreRulesMod() {
         NeoForge.EVENT_BUS.register(this);
         Config.load(Paths.get("mods/MoreRules/morerules.properties"));
-
-//        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     @SubscribeEvent

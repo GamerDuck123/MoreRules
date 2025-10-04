@@ -31,6 +31,12 @@ allprojects {
 //            apply(plugin = "curseforge-plugin")
         }
 
+        if (this.name == "sponge") {
+            apply(plugin = "sponge-plugin")
+            apply(plugin = "modrinth-plugin")
+//            apply(plugin = "curseforge-plugin")
+        }
+
         if (this.name == "common") {
             apply(plugin = "common-plugin")
         }

@@ -14,4 +14,5 @@ dependencies {
     implementation("fabric-loom:fabric-loom.gradle.plugin:${rootProject.property("fabric_loom")}")
     implementation("com.modrinth.minotaur:Minotaur:${rootProject.property("minotaur")}")
     implementation("net.darkhax.curseforgegradle:net.darkhax.curseforgegradle.gradle.plugin:${rootProject.property("curseforge")}")
+    implementation("org.spongepowered.gradle.plugin:org.spongepowered.gradle.plugin.gradle.plugin:${rootProject.property("sponge")}")
 }
