@@ -13,6 +13,10 @@ modrinth {
     uploadFile.set(project.tasks.remapJar)
 }
 
+tasks.shadowJar {
+    isZip64 = true
+}
+
 tasks.register("publishCurseForge", net.darkhax.curseforgegradle.TaskPublishCurseForge::class) {
     apiToken = System.getenv("CURSEFORGE_TOKEN") as String?
 
