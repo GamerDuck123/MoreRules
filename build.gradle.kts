@@ -22,13 +22,13 @@ allprojects {
         if (this.name == "fabric") {
             apply(plugin = "fabric-plugin")
             apply(plugin = "modrinth-plugin")
-//            apply(plugin = "curseforge-plugin")
+            apply(plugin = "curseforge-plugin")
         }
 
         if (this.name == "neoforge") {
             apply(plugin = "neoforge-plugin")
             apply(plugin = "modrinth-plugin")
-//            apply(plugin = "curseforge-plugin")
+            apply(plugin = "curseforge-plugin")
         }
 
         if (this.name == "common") {
@@ -47,7 +47,7 @@ tasks {
     publish {
         dependsOn(subprojects.filter { it.name in listOf("paper", "fabric", "neoforge") }.map { it.tasks.named("modrinth") })
         dependsOn(subprojects.filter { it.name in listOf("paper") }.map { it.tasks.named("publishPluginPublicationToHangar") })
-//        dependsOn(subprojects.filter { it.name in listOf("fabric", "neoforge") }.map { it.tasks.named("") })
+        dependsOn(subprojects.filter { it.name in listOf("fabric", "neoforge") }.map { it.tasks.named("publishCurseForge") })
     }
 
     assemble {

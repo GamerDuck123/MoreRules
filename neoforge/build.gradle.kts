@@ -17,6 +17,19 @@ modrinth {
     uploadFile.set(tasks.jar)
 }
 
+tasks.register("publishCurseForge", net.darkhax.curseforgegradle.TaskPublishCurseForge::class) {
+    apiToken = System.getenv("CURSEFORGE_TOKEN") as String?
+
+    val projectId = findProperty("curseforgeID") as String?
+
+    val mainFile = upload(projectId, tasks.jar)
+    mainFile.addModLoader("Forge")
+    mainFile.addGameVersion(rootProject.property("minecraftVersion") as String)
+    mainFile.releaseType = "release"
+    mainFile.displayName = "${project.version as String}-${project.name}"
+    mainFile.changelog = rootProject.file("CHANGELOG.md").readText()
+}
+
 val localRuntime: Configuration by configurations.creating
 configurations {
     runtimeClasspath.get().extendsFrom(localRuntime)

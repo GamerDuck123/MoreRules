@@ -13,7 +13,18 @@ modrinth {
     uploadFile.set(project.tasks.remapJar)
 }
 
+tasks.register("publishCurseForge", net.darkhax.curseforgegradle.TaskPublishCurseForge::class) {
+    apiToken = System.getenv("CURSEFORGE_TOKEN") as String?
 
+    val projectId = findProperty("curseforgeID") as String?
+
+    val mainFile = upload(projectId, project.tasks.remapJar)
+    mainFile.addModLoader("Fabric")
+    mainFile.addGameVersion(rootProject.property("minecraftVersion") as String)
+    mainFile.releaseType = "release"
+    mainFile.displayName = "${project.version as String}-${project.name}"
+    mainFile.changelog = rootProject.file("CHANGELOG.md").readText()
+}
 
 tasks.register<Copy>("copyCommonSources") {
     from("$rootDir/common/src/main/java") {

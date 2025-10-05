@@ -14,7 +14,7 @@ hangarPublish {
     publications.register("plugin") {
         version.set(project.version as String)
         channel.set("Release")
-        id.set("MoreRules")
+        id.set(property("hangarID") as String)
         apiKey.set(System.getenv("HANGAR_API_TOKEN"))
         changelog.set(rootProject.file("CHANGELOG.md").readText())
         platforms {
