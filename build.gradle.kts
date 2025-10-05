@@ -16,7 +16,7 @@ allprojects {
         if (this.name == "paper") {
             apply(plugin = "paper-plugin")
             apply(plugin = "modrinth-plugin")
-//            apply(plugin = "hangar-plugin")
+            apply(plugin = "hangar-plugin")
         }
 
         if (this.name == "fabric") {
@@ -51,6 +51,7 @@ allprojects {
 tasks {
     publish {
         dependsOn(subprojects.filter { it.name !in listOf("common", "mixins") }.map { it.tasks.named("modrinth") })
+        dependsOn(subprojects.filter { it.name in listOf("paper") }.map { it.tasks.named("publishPluginPublicationToHangar") })
     }
 
     assemble {
