@@ -113,7 +113,7 @@ public class ExplosionEvents implements Listener {
                     new NoExplosionBehavior(world.getWorld(), GameRule.BED_GRIEFING, GameRule.BED_DAMAGE),
                     x, y, z, yield, false, Level.ExplosionInteraction.STANDARD);
         }
-        else if (e.getBlock().getType() == Material.RESPAWN_ANCHOR
+        else if (e.getBlock().getType().equals(Material.RESPAWN_ANCHOR)
                 && !gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.RESPAWN_ANCHOR_GRIEFING)
                 || !gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.RESPAWN_ANCHOR_DAMAGE)) {
             e.setCancelled(true);

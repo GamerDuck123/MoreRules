@@ -9,9 +9,7 @@ brigadier = "1.2.9"
 gson = "2.10.1"
 parchment_mappings="2025.07.20"
 neo="21.8.39"
-configurate = "4.2.0"
-option = "1.1.0"
-geantyref = "2.0.1"
+spigot="1.21.8-R0.1-SNAPSHOT"
 
 [libraries]
 
@@ -20,7 +18,4 @@ fabric_loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = 
 fabric_api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "api" }
 brigadier = { group = "com.mojang", name = "brigadier", version.ref = "brigadier" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
-option = { group = "net.kyori", name = "option", version.ref = "option" }
-geantyref = { group = "io.leangen.geantyref", name = "geantyref", version.ref = "geantyref" }
-configurate_hocon = { group = "org.spongepowered", name = "configurate-hocon", version.ref = "configurate" }
-configurate_core = { group = "org.spongepowered", name = "configurate-core", version.ref = "configurate" }
+spigot = { group = "org.spigotmc", name = "spigot-api", version.ref = "spigot" }

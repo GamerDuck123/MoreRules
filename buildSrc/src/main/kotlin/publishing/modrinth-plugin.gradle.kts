@@ -9,7 +9,8 @@ modrinth {
             "fabric" -> listOf("fabric", "babric", "quilt")
             "neoforge" -> listOf("neoforge")
             "sponge" -> listOf("sponge")
-            "paper" -> listOf("paper", "spigot", "bukkit", "purpur")
+            "paper" -> listOf("paper", "purpur")
+            "bukkit" -> listOf("spigot", "bukkit")
             else -> throw IllegalStateException("Unknown loader $name")
         }
     )

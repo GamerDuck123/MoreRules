@@ -1,0 +1,11 @@
+name: '${name}'
+main: '${group}.MoreRules'
+
+version: '${version}'
+description: '${description}'
+api-version: '${apiVersion}'
+
+commands:
+  gamerule:
+    description: Sets or gets gamerules (vanilla or custom)
+    usage: /gamerule <rule> [value]

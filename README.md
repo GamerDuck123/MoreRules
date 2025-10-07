@@ -10,40 +10,41 @@ Both the mod and plugin inject their code into the /gamerule command, so its as 
 
 #### For a more descriptive list of GameRules please check: https://github.com/GamerDuck123/MoreRules/wiki
 
-| GameRule                      | Fabric | Paper | NeoForge |
-|-------------------------------|--------|-------|----------|
-| doesEnderManGrief             | X      | X     | X        |
-| doCropTrample                 | X      | X     | X        |
-| doesTntGrief                  | X      | X     | X        |
-| doesTntDamage                 | X      | X     | X        |
-| doesCrystalGrief              | X      | X     | X        |
-| doesCrystalDamage             | x      | X     | X        |
-| doesBedGrief                  | X      | X     | X        |
-| doesBedDamage                 | X      | X     | X        |
-| doesRespawnAnchorGrief        | X      | X     | X        |
-| doesRespawnAnchorDamage       | X      | X     | X        |
-| doesCreeperGrief              | X      | X     | X        |
-| doesCreeperDamage             | X      | X     | X        |
-| doesGhastGrief                | X      | X     | X        |
-| doesGhastDamage               | X      | X     | X        |
-| doesCoralDecay                | X      | X     | X        |
-| doVillagerWitchConversion     | X      | X     | X        |
-| doVillagerZombieConversion    | X      | X     | X        |
-| doZombieVillagerConversion    | X      | X     | X        |
-| doPigPiglinConversion         | X      | X     | X        |
-| canSculkSpread                | X      | X     | X        |
-| canLightMeltIce               | X      | X     | X        |
-| canLightMeltSnow              | X      | X     | X        |
-| canMobsPickupItems            | X      | X     | X        |
-| canZombiesBreakDoors          | X      | X     | X        |
-| doesWitherGrief               | X      | X     | X        |
-| doesWitherDamage              | X      | X     | X        |
-| doesWitherSkullGrief          | X      | X     | X        |
-| doesWitherSkullDamage         | X      | X     | X        |
-| doesDragonGrief               | X      |       | X        |
-| doesDragonDamage              | X      |       | X        |
-| doSlimesSplit                 | X      | X     | X        |
-| doSilverfishInfest            | X      | X     | X        |
+| GameRule                      | Fabric | Paper | Spigot | NeoForge |
+|-------------------------------|--------|-------|--------|----------|
+| doesEnderManGrief             | X      | X     | X      | X        |
+| doCropTrample                 | X      | X     | X      | X        |
+| doesTntGrief                  | X      | X     | X      | X        |
+| doesTntDamage                 | X      | X     | X      | X        |
+| doesCrystalGrief              | X      | X     | X      | X        |
+| doesCrystalDamage             | x      | X     | X      | X        |
+| doesBedGrief                  | X      | X     | X      | X        |
+| doesBedDamage                 | X      | X     |        | X        |
+| doesRespawnAnchorGrief        | X      | X     | X      | X        |
+| doesRespawnAnchorDamage       | X      | X     |        | X        |
+| doesCreeperGrief              | X      | X     | X      | X        |
+| doesCreeperDamage             | X      | X     | X      | X        |
+| doesGhastGrief                | X      | X     | X      | X        |
+| doesGhastDamage               | X      | X     | X      | X        |
+| doesCoralDecay                | X      | X     | X      | X        |
+| doVillagerWitchConversion     | X      | X     | X      | X        |
+| doVillagerZombieConversion    | X      | X     | X      | X        |
+| doZombieVillagerConversion    | X      | X     | X      | X        |
+| doPigPiglinConversion         | X      | X     | X      | X        |
+| canSculkSpread                | X      | X     | X      | X        |
+| canLightMeltIce               | X      | X     | X      | X        |
+| canLightMeltSnow              | X      | X     | X      | X        |
+| canMobsPickupItems            | X      | X     | X      | X        |
+| canZombiesBreakDoors          | X      | X     | X      | X        |
+| doesWitherGrief               | X      | X     | X      | X        |
+| doesWitherDamage              | X      | X     | X      | X        |
+| doesWitherSkullGrief          | X      | X     | X      | X        |
+| doesWitherSkullDamage         | X      | X     | X      | X        |
+| doesDragonGrief               | X      |       |        | X        |
+| doesDragonDamage              | X      |       |        | X        |
+| doSlimesSplit                 | X      | X     | X      | X        |
+| doSlimesSplit                 | X      | X     | X      | X        |
+| doSilverfishInfest            | X      | X     | X      | X        |
 
 
 ## Planned GameRules

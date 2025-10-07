@@ -1,5 +1,5 @@
 rootProject.name = "More Rules"
-include("common", "paper", "fabric", "neoforge")
+include("common", "paper", "fabric", "neoforge", "bukkit")
 
 pluginManagement {
     plugins {

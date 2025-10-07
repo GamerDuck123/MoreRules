@@ -31,6 +31,11 @@ allprojects {
             apply(plugin = "curseforge-plugin")
         }
 
+        if (this.name == "bukkit") {
+            apply(plugin = "bukkit-plugin")
+            apply(plugin = "modrinth-plugin")
+        }
+
         if (this.name == "common") {
             apply(plugin = "common-plugin")
         }
@@ -45,7 +50,7 @@ allprojects {
 
 tasks {
     publish {
-        dependsOn(subprojects.filter { it.name in listOf("paper", "fabric", "neoforge") }.map { it.tasks.named("modrinth") })
+        dependsOn(subprojects.filter { it.name in listOf("paper", "fabric", "neoforge", "bukkit") }.map { it.tasks.named("modrinth") })
         dependsOn(subprojects.filter { it.name in listOf("paper") }.map { it.tasks.named("publishPluginPublicationToHangar") })
         dependsOn(subprojects.filter { it.name in listOf("fabric", "neoforge") }.map { it.tasks.named("publishCurseForge") })
     }
