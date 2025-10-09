@@ -2,16 +2,18 @@ package me.gamerduck.rules.bukkit.events;
 
 import me.gamerduck.rules.common.GameRule;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.BlockState;
+import org.bukkit.block.data.type.Bed;
+import org.bukkit.block.data.type.RespawnAnchor;
 import org.bukkit.damage.DamageType;
-import org.bukkit.entity.Creeper;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Ghast;
-import org.bukkit.entity.Projectile;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockExplodeEvent;
+import org.bukkit.event.entity.EntityDamageByBlockEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 
@@ -22,8 +24,9 @@ public class ExplosionEvents implements Listener {
     @EventHandler
     public void onExplosionDamage(EntityDamageEvent e) {
         World world = e.getEntity().getWorld();
-        if (e.getDamageSource().getDamageType() == DamageType.PLAYER_EXPLOSION
-                || e.getDamageSource().getDamageType() == DamageType.EXPLOSION) {
+        if (e.getDamageSource().getCausingEntity() != null &&
+                (e.getDamageSource().getDamageType() == DamageType.PLAYER_EXPLOSION
+                || e.getDamageSource().getDamageType() == DamageType.EXPLOSION)) {
             e.setCancelled(switch (e.getDamageSource().getCausingEntity().getType()) {
                 case CREEPER -> !gameRules.gameRuleValueBool(world, GameRule.CREEPER_DAMAGE);
                 case TNT -> !gameRules.gameRuleValueBool(world, GameRule.TNT_DAMAGE);
@@ -35,19 +38,12 @@ public class ExplosionEvents implements Listener {
                 }
                 case WITHER_SKULL -> !gameRules.gameRuleValueBool(world, GameRule.WITHER_SKULL_DAMAGE);
                 case WITHER -> !gameRules.gameRuleValueBool(world, GameRule.WITHER_DAMAGE);
+                case SQUID -> !gameRules.gameRuleValueBool(world, GameRule.BED_DAMAGE);
+                case GLOW_SQUID -> !gameRules.gameRuleValueBool(world, GameRule.RESPAWN_ANCHOR_DAMAGE);
                 default -> e.isCancelled();
             });
         }
     }
-//    @EventHandler
-//    public void onExplosionDamage(EntityDamageByBlockEvent e) {
-//        World world = e.getEntity().getWorld();
-//        if (e.getDamageSource().getDamageType() == DamageType.EXPLOSION) {
-//            Bukkit.getLogger().info("THIS IS A TEST2");
-//            if (e.getDamager().getType().toString().contains("BED")) e.setCancelled(!gameRules.gameRuleValueBool(world, GameRule.BED_DAMAGE));
-//            else if (e.getDamager().getType() == Material.RESPAWN_ANCHOR) e.setCancelled(!gameRules.gameRuleValueBool(world, GameRule.RESPAWN_ANCHOR_DAMAGE));
-//        }
-//    }
 
     @EventHandler
     public void onExplosion(EntityExplodeEvent e) {
@@ -96,9 +92,27 @@ public class ExplosionEvents implements Listener {
                     world.createExplosion(x, y, z, 7.0F, false, false, e.getEntity());
                 }
             }
+            case ENDER_DRAGON -> {
+                if (!gameRules.gameRuleValueBool(world, GameRule.DRAGON_GRIEFING)) {
+                    e.setCancelled(true);
+                    world.createExplosion(x, y, z, 1.0F, false, false, e.getEntity());
+                }
+            }
         }
     }
 
+    @EventHandler
+    public void onBlockExplosionDamage(EntityDamageByBlockEvent e) {
+        if (e.getDamageSource().getDamageType().equals(DamageType.BAD_RESPAWN_POINT)) {
+            if (e.getEntity().getWorld().isPiglinSafe() &&
+                    !gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.BED_DAMAGE)) {
+                e.setCancelled(true);
+            } else if (!e.getEntity().getWorld().isPiglinSafe() &&
+                    !gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.RESPAWN_ANCHOR_DAMAGE)) {
+                e.setCancelled(true);
+            }
+        }
+    }
 
     @EventHandler
     public void onBlockExplosion(BlockExplodeEvent e) {
@@ -107,15 +121,22 @@ public class ExplosionEvents implements Listener {
         double y = e.getBlock().getLocation().getY();
         double z = e.getBlock().getLocation().getZ();
 
-        if (e.getBlock().getType().toString().contains("BED")
-                && !gameRules.gameRuleValueBool(world, GameRule.BED_GRIEFING)) {
+        if (world.isPiglinSafe() &&
+                !gameRules.gameRuleValueBool(world, GameRule.BED_GRIEFING)) {
             e.setCancelled(true);
-            world.createExplosion(x, y, z, 5.0F, true, false);
-        }
-        else if (e.getBlock().getType().equals(Material.RESPAWN_ANCHOR)
-                && !gameRules.gameRuleValueBool(world, GameRule.RESPAWN_ANCHOR_GRIEFING)) {
+            Location entLoc = e.getBlock().getLocation().clone();
+            entLoc.setY(300);
+            Entity ent = world.spawnEntity(entLoc, EntityType.SQUID);
+            world.createExplosion(x, y, z, 5.0F, true, false, ent);
+            ent.remove();
+        } else if (!world.isPiglinSafe() &&
+                    !gameRules.gameRuleValueBool(world, GameRule.RESPAWN_ANCHOR_GRIEFING)) {
             e.setCancelled(true);
-            world.createExplosion(x, y, z, 5.0F, false, false);
+            Location entLoc = e.getBlock().getLocation().clone();
+            entLoc.setY(300);
+            Entity ent = world.spawnEntity(entLoc, EntityType.GLOW_SQUID);
+            world.createExplosion(x, y, z, 5.0F, false, false, ent);
+            ent.remove();
         }
     }
 

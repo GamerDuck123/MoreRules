@@ -50,6 +50,6 @@ public class NoExplosionBehavior extends ExplosionDamageCalculator {
 
     @Override
     public boolean shouldDamageEntity(Explosion explosion, Entity entity) {
-        return secondBehavior == null ? gameRules.gameRuleValueBool(world, doDamageRule) : secondBehavior.shouldDamageEntity(explosion, entity);
+        return doDamageRule == null || (secondBehavior == null ? gameRules.gameRuleValueBool(world, doDamageRule) : secondBehavior.shouldDamageEntity(explosion, entity));
     }
 }

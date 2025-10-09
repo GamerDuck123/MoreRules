@@ -34,9 +34,9 @@ public enum GameRule {
     DRAGON_DAMAGE(Boolean.class, "doesDragonDamage", true),
     SLIMES_SPLIT(Boolean.class, "doSlimesSplit", true),
     SILVERFISH_INFEST(Boolean.class, "doSilverfishInfest", true),
+    LEAVES_DECAY(Boolean.class, "doLeavesDecay", true),
 
     PHANTOMS_SPAWN(Boolean.class, "doPhantomsSpawn", true),
-    LEAVES_DECAY(Boolean.class, "doLeavesDecay", true),
     FIRE_DAMAGE(Boolean.class, "doesFireDamage", true),
     MOSS_SPREAD(Boolean.class, "doesMossSpread", true),
     GRASS_SPREAD(Boolean.class, "doesGrassSpread", true),

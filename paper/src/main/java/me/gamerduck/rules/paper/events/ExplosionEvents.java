@@ -94,6 +94,14 @@ public class ExplosionEvents implements Listener {
                             x, y, z, yield, true, Level.ExplosionInteraction.STANDARD);
                 }
             }
+            case ENDER_DRAGON -> {
+                if (!gameRules.gameRuleValueBool(craftWorld, GameRule.DRAGON_GRIEFING)) {
+                    e.setCancelled(true);
+                    world.explode(entity, Explosion.getDefaultDamageSource(world, entity),
+                            new NoExplosionBehavior(craftWorld, GameRule.DRAGON_GRIEFING, null),
+                            x, y, z, yield, true, Level.ExplosionInteraction.STANDARD);
+                }
+            }
         }
     }
 

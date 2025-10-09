@@ -25,6 +25,8 @@ public class BlockChangeEvents implements Listener {
             e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.LIGHT_MELT_SNOW));
         } else if (e.getBlock().getType().toString().contains("CORAL")) {
             e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.CORAL_DECAY));
+        } else if (e.getBlock().getType().toString().contains("LEAVES")) {
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.LEAVES_DECAY));
         }
     }
 

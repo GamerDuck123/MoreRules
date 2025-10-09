@@ -1,20 +1,44 @@
 package me.gamerduck.rules.bukkit.events;
 
 import me.gamerduck.rules.common.GameRule;
-import org.bukkit.entity.Enderman;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Villager;
+import org.bukkit.damage.DamageType;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityChangeBlockEvent;
-import org.bukkit.event.entity.EntityPickupItemEvent;
-import org.bukkit.event.entity.EntityTransformEvent;
-import org.bukkit.event.entity.SlimeSplitEvent;
+import org.bukkit.event.entity.*;
 
 import static me.gamerduck.rules.bukkit.MoreRules.gameRules;
 
 public class EntityEvents implements Listener {
+
+    @EventHandler
+    public void onEntitySpawn(EntitySpawnEvent e) {
+        if (e.getEntityType() == EntityType.PHANTOM)
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.DRAGON_DAMAGE));
+    }
+
+    @EventHandler
+    public void onEntityDamage(EntityDamageEvent e) {
+        if (e.getEntityType() == EntityType.PLAYER) {
+            // PLAYER ONLY
+            if (e.getDamageSource().getDamageType() == DamageType.FALL)
+                e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.PLAYER_FALL_DAMAGE));
+            if (e.getDamageSource().getDamageType() == DamageType.DROWN)
+                e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.PLAYER_DROWN));
+            if (e.getDamageSource().getDamageType() == DamageType.IN_FIRE
+                    || e.getDamageSource().getDamageType() == DamageType.ON_FIRE)
+                e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.FIRE_DAMAGE));
+            if (e.getDamageSource().getDamageType() == DamageType.ENDER_PEARL)
+                e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.ENDER_PEARL_DAMAGE));
+            if (e.getEntityType() == EntityType.ENDER_DRAGON)
+                e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.DRAGON_DAMAGE));
+        } else if (e.getEntity() instanceof Tameable tamed
+                && tamed.isTamed()
+                && tamed.getOwner().getUniqueId() == e.getEntity().getUniqueId()) {
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.PET_FRIENDLY_FIRE));
+        }
+    }
+
 
     @EventHandler
     public void onSlimeSplitEvent(SlimeSplitEvent e) {
@@ -24,11 +48,15 @@ public class EntityEvents implements Listener {
     }
 
     @EventHandler
+    public void onEntityEnterBlockEvent(EntityEnterBlockEvent e) {
+        if (e.getEntityType() == EntityType.SILVERFISH)
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.SILVERFISH_INFEST));
+    }
+
+    @EventHandler
     public void onEntityChangeBlockEvent(EntityChangeBlockEvent e) {
         if (e.getEntityType() == EntityType.ENDERMAN)
             e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.ENDERMEN_GRIEFING));
-        if (e.getEntityType() == EntityType.SILVERFISH)
-            e.setCancelled(!gameRules.gameRuleValueBool(e.getEntity().getWorld(), GameRule.SILVERFISH_INFEST));
     }
 
     @EventHandler
