@@ -51,6 +51,19 @@ Both the mod and plugin inject their code into the /gamerule command, so its as 
 | doEnderPearlsDamage        | X      | X     | X      | X        |
 | doesPlayersDrown           | X      | X     | X      | X        |
 | doPetFriendlyFire          | X      | X     | X      | X        |
+| doesMossSpread             |        | X     | X      |          |
+| doesGrassSpread            |        | X     | X      |          |
+| doesVinesSpread            |        | X     | X      |          |
+| doProjectilePickup         |        | X     | X      |          |
+| doesPlayerHunger           |        | X     | X      |          |
+| doItemsDespawn             |        | X     | X      |          |
+| canAnvilCostTooMuch        |        |       |        |          |
+| doDragonEggsDropOnRespawn  |        |       |        |          |
+| doesInfinityNeedArrow      |        |       |        |          |
+| doPlayerHeadsDrop          | X      | X     | X      | X        |
+| playerHeadDropChance       | X      | X     | X      | X        |
+| doMobHeadDrop              | X      | X     | X      | X        |
+| mobHeadDropChance          | X      | X     | X      | X        |
 
 
 ## Planned GameRules

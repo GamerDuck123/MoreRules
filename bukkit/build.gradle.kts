@@ -2,8 +2,8 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.exclude
 
 dependencies {
-    compileOnly(libs.spigot)
-    compileOnly(libs.brigadier)
+    compileOnly(libs.spigot.api)
+    compileOnly(libs.authlib)
     compileOnly(libs.gson)
     implementation("me.lucko:commodore:2.2")
 }

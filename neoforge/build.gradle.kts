@@ -23,7 +23,7 @@ tasks.register("publishCurseForge", net.darkhax.curseforgegradle.TaskPublishCurs
     val projectId = findProperty("curseforgeID") as String?
 
     val mainFile = upload(projectId, tasks.jar)
-    mainFile.addModLoader("Forge")
+    mainFile.addModLoader("NeoForge")
     mainFile.addGameVersion(rootProject.property("minecraftVersion") as String)
     mainFile.releaseType = "release"
     mainFile.displayName = "${project.version as String}-${project.name}"

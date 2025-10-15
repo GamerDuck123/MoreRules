@@ -1,27 +1,23 @@
-# Full Compat with Paper and Spigot & Some more Gamerules
+# All Planned Gamerules Added!
+#### Next update (which will be shortly after this one) will be 1.21.9, the one after that (again shortly after that one) will be 1.21.10 support, I plan on supporting 1.21.8, 1.21.9, and 1.21.10 at the same time for the time being (and maybe backport to some older versions!)
 
-Before I move on to updating to 1.21.9 I wanted to make one final update to ensure that paper and spigot were also on the same level of polish as neoforge and fabric so I've added their missing gamerules:
+| GameRule                  | Fabric | Paper | Spigot | NeoForge |
+|---------------------------|--------|-------|--------|----------|
+| doesMossSpread            | X      | X     | X      | X        |
+| doesGrassSpread           | X      | X     | X      | X        | 
+| canPickupProjectiles      | X      | X     | X      | X        |
+| doesPlayerHunger          | X      | X     | X      | X        |
+| doItemsDespawn            | X      | X     | X      | X        |
+| doDragonEggsDropOnRespawn | X      | X     | X      | X        |
+| doesInfinityNeedArrow     | X      | X     | X      | X        |
+| doPlayerHeadsDrop         | X      | X     | X      | X        |
+| playerHeadDropChance      | X      | X     | X      | X        |
+| doMobHeadDrop             | X      | X     | X      | X        |
+| mobHeadDropChance         | X      | X     | X      | X        |
+| doesObsidianGenerate      | X      | X     | X      | X        |
+| doesStoneGenerate         | X      | X     | X      | X        |
+| doesCobblestoneGenerate   | X      | X     | X      | X        |
+| doesBasaltGenerate        | X      | X     | X      | X        |
 
-O = Already added in a previous version
-
-X = Added this version
-
-| GameRule                | Paper | Spigot |
-|-------------------------|-------|--------|
-| doesRespawnAnchorDamage | O     | X      |
-| doesBedDamage           | O     | X      |
-| doesDragonGrief         | X     | X      |
-| doesDragonDamage        | X     | X      |
-
-# For everyone else:
-
-I also wanted to add a few more simple gamerules to help flesh out the project a bit more:
-
-| GameRule                   | Fabric | Paper | Spigot | NeoForge |
-|----------------------------|--------|-------|--------|----------|
-| doLeavesDecay              | X      | X     | X      | X        |
-| doPhantomsSpawn            | X      | X     | X      | X        |
-| doesFireDamage             | X      | X     | X      | X        |
-| doEnderPearlsDamage        | X      | X     | X      | X        |
-| doesPlayersDrown           | X      | X     | X      | X        |
-| doPetFriendlyFire          | X      | X     | X      | X        |
+Removed doesVinesSpread as you can do this in vanilla by shearing them
+Had to remove canAnvilCostTooMuch for now as it is near impossible to do server side in a stable format.

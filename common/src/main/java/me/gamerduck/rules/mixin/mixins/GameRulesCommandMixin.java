@@ -2,6 +2,9 @@ package me.gamerduck.rules.mixin.mixins;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.BoolArgumentType;
+import com.mojang.brigadier.arguments.DoubleArgumentType;
+import com.mojang.brigadier.arguments.FloatArgumentType;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
@@ -26,11 +29,15 @@ public class GameRulesCommandMixin {
     @Inject(method = "register", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/GameRules;visitGameRuleTypes(Lnet/minecraft/world/level/GameRules$GameRuleTypeVisitor;)V", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
     private static void injected(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext commandBuildContext, CallbackInfo ci, LiteralArgumentBuilder<CommandSourceStack> literalArgumentBuilder) {
         Stream.of(GameRule.values()).forEach(rule -> {
-            RequiredArgumentBuilder<CommandSourceStack, Boolean> type = Commands.argument("value", BoolArgumentType.bool());
-            literalArgumentBuilder.then(Commands.literal(rule.id()).executes((commandContext) ->
-                    executeQuery(commandContext, rule)
-            ).then(type.executes((commandContext) -> executeSet(commandContext, rule))));
+            RequiredArgumentBuilder<CommandSourceStack, ?> type;
+            if (rule.defaultValue() instanceof Double) type = Commands.argument("value", DoubleArgumentType.doubleArg());
+            else if (rule.defaultValue() instanceof Integer) type = Commands.argument("value", IntegerArgumentType.integer());
+            else if (rule.defaultValue() instanceof Float) type = Commands.argument("value", FloatArgumentType.floatArg());
+            else type = Commands.argument("value", BoolArgumentType.bool());
+            literalArgumentBuilder.then(Commands.literal(rule.id()).executes((commandContext) -> executeQuery(commandContext, rule))
+                    .then(type.executes((commandContext) -> executeSet(commandContext, rule))));
         });
+
 
         dispatcher.register(literalArgumentBuilder);
     }

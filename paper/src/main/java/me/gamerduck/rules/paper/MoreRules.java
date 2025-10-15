@@ -3,9 +3,7 @@ package me.gamerduck.rules.paper;
 import me.gamerduck.rules.common.GameRules;
 import me.gamerduck.rules.config.Config;
 import me.gamerduck.rules.paper.commands.GameRuleCommand;
-import me.gamerduck.rules.paper.events.BlockChangeEvents;
-import me.gamerduck.rules.paper.events.EntityEvents;
-import me.gamerduck.rules.paper.events.ExplosionEvents;
+import me.gamerduck.rules.paper.events.*;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;
@@ -13,13 +11,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.event.world.WorldUnloadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 
-import java.awt.*;
 import java.io.File;
 import java.nio.file.Paths;
-
-import static net.kyori.adventure.text.minimessage.MiniMessage.miniMessage;
 
 public class MoreRules extends JavaPlugin implements Listener {
 
@@ -36,6 +30,9 @@ public class MoreRules extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ExplosionEvents(), this);
         getServer().getPluginManager().registerEvents(new BlockChangeEvents(), this);
         getServer().getPluginManager().registerEvents(new EntityEvents(), this);
+        getServer().getPluginManager().registerEvents(new PlayerBowEvents(this), this);
+        getServer().getPluginManager().registerEvents(new HeadDroppingEvent(), this);
+
         GameRuleCommand.inject();
 
         Bukkit.getWorlds().forEach(w ->

@@ -5,6 +5,7 @@ import me.gamerduck.rules.bukkit.commands.GameRuleCompletions;
 import me.gamerduck.rules.bukkit.events.BlockChangeEvents;
 import me.gamerduck.rules.bukkit.events.EntityEvents;
 import me.gamerduck.rules.bukkit.events.ExplosionEvents;
+import me.gamerduck.rules.bukkit.events.PlayerBowEvents;
 import me.gamerduck.rules.common.GameRules;
 import me.gamerduck.rules.config.Config;
 import me.lucko.commodore.Commodore;
@@ -34,6 +35,7 @@ public class MoreRules extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ExplosionEvents(), this);
         getServer().getPluginManager().registerEvents(new BlockChangeEvents(), this);
         getServer().getPluginManager().registerEvents(new EntityEvents(), this);
+        getServer().getPluginManager().registerEvents(new PlayerBowEvents(this), this);
 
         PluginCommand cmd = getCommand("gamerule");
         cmd.setExecutor(new GameRuleCommand());

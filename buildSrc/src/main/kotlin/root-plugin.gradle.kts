@@ -1,8 +1,6 @@
 plugins {
     `java-library`
     `maven-publish`
-
-    id("com.gradleup.shadow")
 }
 
 repositories {

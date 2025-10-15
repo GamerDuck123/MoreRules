@@ -28,11 +28,20 @@ public class GameRuleCommand implements CommandExecutor {
                 sender.sendMessage(String.format("Gamerule %s is currently set to: %s", ruleId, value));
                 return true;
             }
+            try {
+                Object value;
+                if (customRule.defaultValue() instanceof Integer) value = Integer.parseInt(args[1]);
+                else if (customRule.defaultValue() instanceof Double) value = Double.parseDouble(args[1]);
+                else if (customRule.defaultValue() instanceof Float) value = Float.parseFloat(args[1]);
+                else value = Boolean.parseBoolean(args[1]);
 
-            boolean value = Boolean.parseBoolean(args[1]);
-            gameRules.gameRuleValue(getWorld(sender), customRule, value);
-            sender.sendMessage(String.format("Gamerule %s is now set to: %s", ruleId, value));
-            return true;
+                gameRules.gameRuleValue(getWorld(sender), customRule, value);
+                sender.sendMessage(String.format("Gamerule %s is now set to: %s", ruleId, value));
+                return true;
+            } catch (Exception e) {
+                sender.sendMessage(String.format("Improper value for that gamerule", ruleId));
+                return true;
+            }
         }
 
         World world = getWorld(sender);

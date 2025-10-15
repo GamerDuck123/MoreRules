@@ -6,9 +6,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.block.BlockFadeEvent;
-import org.bukkit.event.block.BlockSpreadEvent;
+import org.bukkit.event.block.*;
 import org.bukkit.event.entity.EntityBreakDoorEvent;
 import org.bukkit.event.entity.EntityInteractEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -16,6 +14,25 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import static me.gamerduck.rules.bukkit.MoreRules.gameRules;
 
 public class BlockChangeEvents implements Listener {
+
+    @EventHandler
+    public void blockForm(BlockFertilizeEvent e) {
+        if (e.getBlock().getType() == Material.MOSS_BLOCK)
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.MOSS_SPREAD));
+    }
+
+    @EventHandler
+    public void blockForm(BlockFormEvent e) {
+        if (e.getNewState().getType() == Material.OBSIDIAN) {
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.OBSIDIAN_GENERATE));
+        } else if (e.getNewState().getType() == Material.COBBLESTONE) {
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.COBBLESTONE_GENERATE));
+        } else if (e.getNewState().getType() == Material.STONE) {
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.STONE_GENERATE));
+        } else if (e.getNewState().getType() == Material.BASALT) {
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.BASALT_GENERATE));
+        }
+    }
 
     @EventHandler
     public void blockMelt(BlockFadeEvent e) {
@@ -34,18 +51,14 @@ public class BlockChangeEvents implements Listener {
     public void onBlockChange(BlockSpreadEvent e) {
         if (e.getSource().getType() == Material.SCULK_CATALYST)
             e.setCancelled(!gameRules.gameRuleValueBool(e.getSource().getWorld(), GameRule.SCULK_SPREADING));
+        if (e.getSource().getType() == Material.GRASS_BLOCK)
+            e.setCancelled(!gameRules.gameRuleValueBool(e.getSource().getWorld(), GameRule.GRASS_SPREAD));
     }
 
     @EventHandler
     public void onCropTrample(EntityInteractEvent e) {
         if (!(e.getEntity() instanceof Player) && e.getBlock().getType() == Material.FARMLAND)
             e.setCancelled(!gameRules.gameRuleValueBool(e.getBlock().getWorld(), GameRule.CROP_TRAMPLE));
-    }
-
-    @EventHandler
-    public void onCropTrample(PlayerInteractEvent e) {
-        if (e.getAction() == Action.PHYSICAL && e.getClickedBlock().getType() == Material.FARMLAND)
-            e.setCancelled(!gameRules.gameRuleValueBool(e.getClickedBlock().getWorld(), GameRule.CROP_TRAMPLE));
     }
 
     @EventHandler

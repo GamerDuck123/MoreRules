@@ -35,7 +35,6 @@ public enum GameRule {
     SLIMES_SPLIT(Boolean.class, "doSlimesSplit", true),
     SILVERFISH_INFEST(Boolean.class, "doSilverfishInfest", true),
     LEAVES_DECAY(Boolean.class, "doLeavesDecay", true),
-
     PHANTOMS_SPAWN(Boolean.class, "doPhantomsSpawn", true),
     FIRE_DAMAGE(Boolean.class, "doesFireDamage", true),
     MOSS_SPREAD(Boolean.class, "doesMossSpread", true),
@@ -49,11 +48,16 @@ public enum GameRule {
     PET_FRIENDLY_FIRE(Boolean.class, "doPetFriendlyFire", true),
     ITEMS_DESPAWN(Boolean.class, "doItemsDespawn", true),
     NEW_DRAGON_EGGS(Boolean.class, "doDragonEggsDropOnRespawn", false),
-    ANVIL_COST_TOO_MUCH(Boolean.class, "canAnvilCostTooMuch", true),
     ENDER_PEARL_DAMAGE(Boolean.class, "doEnderPearlsDamage", true),
     INFINITY_NEED_ARROW(Boolean.class, "doesInfinityNeedArrow", true),
     PLAYERS_HEAD_DROP(Boolean.class, "doPlayerHeadsDrop", false),
+    PLAYERS_HEAD_DROP_CHANCE(Double.class, "playerHeadDropChance", -1.0d),
     MOB_HEAD_DROP(Boolean.class, "doMobHeadDrop", false),
+    MOB_HEAD_DROP_CHANCE(Double.class, "mobHeadDropChance", -1.0d),
+    OBSIDIAN_GENERATE(Boolean.class, "doesObsidianGenerate", true),
+    STONE_GENERATE(Boolean.class, "doesStoneGenerate", true),
+    COBBLESTONE_GENERATE(Boolean.class, "doesCobblestoneGenerate", true),
+    BASALT_GENERATE(Boolean.class, "doesBasaltGenerate", true),
     ;
 
     private Class<?> type;
