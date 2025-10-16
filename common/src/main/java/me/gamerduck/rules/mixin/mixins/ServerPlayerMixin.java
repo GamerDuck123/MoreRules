@@ -40,7 +40,7 @@ public abstract class ServerPlayerMixin extends Player {
             Double chance = gameRules.gameRuleValueDouble(level(), GameRule.PLAYERS_HEAD_DROP_CHANCE);
             if (chance < 0 || chance >= ThreadLocalRandom.current().nextDouble(0, 100)) {
                 ItemStack head = new ItemStack(Items.PLAYER_HEAD);
-                head.set(DataComponents.PROFILE, new ResolvableProfile(getGameProfile()));
+                head.set(DataComponents.PROFILE, ResolvableProfile.createResolved(getGameProfile()));
                 EntityType.ITEM.spawn((ServerLevel) level(), (ent) -> {
                     ent.setItem(head);
                 }, BlockPos.containing(position()), EntitySpawnReason.EVENT, false, false);

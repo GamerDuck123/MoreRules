@@ -1,12 +1,12 @@
 dependencies {
     compileOnly(libs.gson)
 
-    compileOnly("org.spongepowered:mixin:0.8.5")
-    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+    compileOnly(libs.mixin)
+    annotationProcessor("${libs.mixin.get()}:processor")
 }
 
 neoForge {
-    neoFormVersion = "1.21.8-20250717.133445"
+    neoFormVersion = libs.versions.neoform.get()
 }
 
 

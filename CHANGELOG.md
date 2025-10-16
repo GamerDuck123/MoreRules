@@ -1,5 +1,5 @@
 # All Planned Gamerules Added!
-#### Next update (which will be shortly after this one) will be 1.21.9, the one after that (again shortly after that one) will be 1.21.10 support, I plan on supporting 1.21.8, 1.21.9, and 1.21.10 at the same time for the time being (and maybe backport to some older versions!)
+#### This update is only for 1.21.10 for now, I will be making some backports here soon!
 
 | GameRule                  | Fabric | Paper | Spigot | NeoForge |
 |---------------------------|--------|-------|--------|----------|

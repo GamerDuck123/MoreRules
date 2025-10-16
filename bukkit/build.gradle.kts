@@ -5,7 +5,7 @@ dependencies {
     compileOnly(libs.spigot.api)
     compileOnly(libs.authlib)
     compileOnly(libs.gson)
-    implementation("me.lucko:commodore:2.2")
+    implementation(libs.commodore)
 }
 
 modrinth {
@@ -85,7 +85,6 @@ tasks {
             exclude(dependency("com.mojang:brigadier"))
         }
 
-        /* vvv Replace with the package of your plugin vvv */
         relocate("me.lucko.commodore", "me.gamerduck.rules.bukkit.commodore")
         archiveClassifier.set("")
     }

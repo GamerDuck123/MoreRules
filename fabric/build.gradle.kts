@@ -3,7 +3,7 @@ dependencies {
 
     mappings(loom.layered {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-1.21.8:2025.07.20@zip")
+        parchment("org.parchmentmc.data:parchment-${libs.versions.minecraft.get()}:${libs.versions.parchment.mappings.get()}@zip")
     })
     modImplementation(libs.fabric.loader)
     modImplementation(libs.fabric.api)

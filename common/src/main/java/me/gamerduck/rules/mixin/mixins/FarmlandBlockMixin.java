@@ -17,6 +17,6 @@ public abstract class FarmlandBlockMixin {
 
     @Inject(method = "fallOn", at = @At(value = "HEAD"), cancellable = true)
     private void inject(Level instance, BlockState p_153228_, BlockPos p_153229_, Entity p_153230_, double p_397639_, CallbackInfo ci) {
-        if (!instance.isClientSide && !MixinsVariable.gameRules.gameRuleValueBool(instance, GameRule.CROP_TRAMPLE)) ci.cancel();
+        if (!instance.isClientSide() && !MixinsVariable.gameRules.gameRuleValueBool(instance, GameRule.CROP_TRAMPLE)) ci.cancel();
     }
 }

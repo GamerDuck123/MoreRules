@@ -2,15 +2,18 @@ metadata.format.version = "1.1"
 
 [versions]
 
-minecraft = "1.21.8"
-loader = "0.17.2"
-api = "0.133.0+1.21.8"
+minecraft = "1.21.10"
+loader = "0.17.3"
+api = "0.135.0+1.21.10"
 brigadier = "1.2.9"
 gson = "2.10.1"
-parchment_mappings="2025.07.20"
-neo="21.8.39"
-spigot="1.21.8-R0.1-SNAPSHOT"
+parchment_mappings="2025.10.12"
+neo="21.9.16-beta"
+neoform="1.21.10-20251010.172816"
+spigot="1.21.9-R0.1-SNAPSHOT"
 authlib="1.5.25"
+commodore="2.2"
+mixin="0.8.5"
 
 [libraries]
 
@@ -21,3 +24,5 @@ brigadier = { group = "com.mojang", name = "brigadier", version.ref = "brigadier
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 spigot_api = { group = "org.spigotmc", name = "spigot-api", version.ref = "spigot" }
 authlib = { group = "com.mojang", name = "authlib", version.ref = "authlib" }
+commodore = { group = "me.lucko", name = "commodore", version.ref = "commodore" }
+mixin = { group = "org.spongepowered", name = "mixin", version.ref = "mixin" }
