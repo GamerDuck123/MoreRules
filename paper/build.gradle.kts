@@ -13,7 +13,7 @@ modrinth {
 hangarPublish {
     publications.register("plugin") {
         version.set(project.version as String)
-        channel.set("Release")
+        channel.set("BackPort")
         id.set(property("hangarID") as String)
         apiKey.set(System.getenv("HANGAR_API_TOKEN"))
         changelog.set(rootProject.file("CHANGELOG.md").readText())
