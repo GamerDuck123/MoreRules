@@ -94,9 +94,9 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, Wa
 
         UUID randomUUID = UUID.randomUUID();
         GameProfile profile = new GameProfile(randomUUID, randomUUID.toString().substring(0, 15));
-        profile.properties().put("textures", new Property("textures", b64));
+        profile.getProperties().put("textures", new Property("textures", b64));
 
-        tempHead.set(DataComponents.PROFILE, ResolvableProfile.createResolved(profile));
+        tempHead.set(DataComponents.PROFILE, new ResolvableProfile(profile));
         tempHead.set(DataComponents.CUSTOM_NAME, Component.literal(name));
 
         return tempHead;

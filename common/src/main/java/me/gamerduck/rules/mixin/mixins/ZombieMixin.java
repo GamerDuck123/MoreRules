@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(Zombie.class)
 public abstract class ZombieMixin {
     @Inject(method = "killedEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/Zombie;convertVillagerToZombieVillager(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/npc/Villager;)Z"), cancellable = true, locals = LocalCapture.CAPTURE_FAILSOFT)
-    private void inject(ServerLevel p_219160_, LivingEntity p_219161_, DamageSource p_432761_, CallbackInfoReturnable<Boolean> cir, boolean flag, Villager villager) {
+    private void inject(ServerLevel p_219160_, LivingEntity p_219161_, CallbackInfoReturnable<Boolean> cir, boolean flag, Villager villager) {
         if (!MixinsVariable.gameRules.gameRuleValueBool(p_219160_, GameRule.VILLAGER_ZOMBIE_CONVERSIONS)) cir.setReturnValue(flag);
     }
 }
