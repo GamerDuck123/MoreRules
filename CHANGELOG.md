@@ -1,5 +1,5 @@
 # All Planned Gamerules Added!
-#### This update is only for 1.21.10 for now, I will be making some backports here soon!
+#### This update is for 1.21.10 for now, I will be making some backports here soon back until 1.16, I just need to find the time!
 
 | GameRule                  | Fabric | Paper | Spigot | NeoForge |
 |---------------------------|--------|-------|--------|----------|

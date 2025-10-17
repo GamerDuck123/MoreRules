@@ -51,35 +51,25 @@ Both the mod and plugin inject their code into the /gamerule command, so its as 
 | doEnderPearlsDamage        | X      | X     | X      | X        |
 | doesPlayersDrown           | X      | X     | X      | X        |
 | doPetFriendlyFire          | X      | X     | X      | X        |
-| doesMossSpread             |        | X     | X      |          |
-| doesGrassSpread            |        | X     | X      |          |
-| doesVinesSpread            |        | X     | X      |          |
-| doProjectilePickup         |        | X     | X      |          |
-| doesPlayerHunger           |        | X     | X      |          |
-| doItemsDespawn             |        | X     | X      |          |
-| canAnvilCostTooMuch        |        |       |        |          |
-| doDragonEggsDropOnRespawn  |        |       |        |          |
-| doesInfinityNeedArrow      |        |       |        |          |
+| doesMossSpread             | X      | X     | X      | X        |
+| doesGrassSpread            | X      | X     | X      | X        |
+| doProjectilePickup         | X      | X     | X      | X        |
+| doesPlayerHunger           | X      | X     | X      | X        |
+| doItemsDespawn             | X      | X     | X      | X        |
+| doDragonEggsDropOnRespawn  | X      | X     | X      | X        |
+| doesInfinityNeedArrow      | X      | X     | X      | X        |
 | doPlayerHeadsDrop          | X      | X     | X      | X        |
 | playerHeadDropChance       | X      | X     | X      | X        |
 | doMobHeadDrop              | X      | X     | X      | X        |
 | mobHeadDropChance          | X      | X     | X      | X        |
+| doesObsidianGenerate       | X      | X     | X      | X        |
+| doesStoneGenerate          | X      | X     | X      | X        |
+| doesCobblestoneGenerate    | X      | X     | X      | X        |
+| doesBasaltGenerate         | X      | X     | X      | X        |
 
 
 ## Planned GameRules
 
 #### If you have any ideas for some more please create an issue on the github: https://github.com/GamerDuck123/MoreRules/issues
 
-| Planned GameRules         | Description                                         |
-|---------------------------|-----------------------------------------------------|
-| doesMossSpread            | Does moss spread when bone mealed                   |
-| doesGrassSpread           | Does grass spread to dirt                           |
-| doesVinesSpread           | Do vines spread                                     |
-| doProjectilePickup        | Do players pickup projectiles (arrows)              |
-| doesPlayerHunger          | Do players lose hunger                              |
-| doItemsDespawn            | Do items despawn                                    |
-| canAnvilCostTooMuch       | Does the anvil have a max level cap                 |
-| doDragonEggsDropOnRespawn | Does the dragon drop an egg even if respawned       |
-| doesInfinityNeedArrow     | Do you need an arrow for infinity to work           |
-| doPlayerHeadsDrop         | Do player heads drop on death                       |
-| doMobHeadDrop             | Do mob heads drop on death                          |
+### There are no planned gamerules at this time! Please recommend some!
