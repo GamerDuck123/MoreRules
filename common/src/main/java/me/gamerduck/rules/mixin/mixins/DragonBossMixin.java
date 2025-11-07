@@ -1,5 +1,7 @@
 package me.gamerduck.rules.mixin.mixins;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import me.gamerduck.rules.common.GameRule;
 import me.gamerduck.rules.mixin.MixinsVariable;
 import net.minecraft.core.BlockPos;
