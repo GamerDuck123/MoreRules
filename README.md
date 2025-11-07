@@ -51,25 +51,25 @@ For a more detailed wiki, including descriptions for each GameRule, visit:
 | doSilverfishInfest         | ✅      | ✅     | ✅      | ✅        |
 | doLeavesDecay              | ✅      | ✅     | ✅      | ✅        |
 | doPhantomsSpawn            | ✅      | ✅     | ✅      | ✅        |
-| doesFireDamage             | ✅      | ✅     |
-| doEnderPearlsDamage        | ✅      | ✅     |
-| doesPlayersDrown           | ✅      | ✅     |
-| doPetFriendlyFire          | ✅      | ✅     |
-| doesMossSpread             | ✅      | ✅     |
-| doesGrassSpread            | ✅      | ✅     |
-| doProjectilePickup         | ✅      | ✅     |
-| doesPlayerHunger           | ✅      | ✅     |
-| doItemsDespawn             | ✅      | ✅     |
-| doDragonEggsDropOnRespawn  | ✅      | ✅     |
-| doesInfinityNeedArrow      | ✅      | ✅     |
-| doPlayerHeadsDrop          | ✅      | ✅     |
-| playerHeadDropChance       | ✅      | ✅     |
-| doMobHeadDrop              | ✅      | ✅     |
-| mobHeadDropChance          | ✅      | ✅     |
-| doesObsidianGenerate       | ✅      | ✅     |
-| doesStoneGenerate          | ✅      | ✅     |
-| doesCobblestoneGenerate    | ✅      | ✅     |
-| doesBasaltGenerate         | ✅      | ✅     |
+| doesFireDamage             | ✅      | ✅     | ✅      | ✅        |
+| doEnderPearlsDamage        | ✅      | ✅     | ✅      | ✅        |
+| doesPlayersDrown           | ✅      | ✅     | ✅      | ✅        |
+| doPetFriendlyFire          | ✅      | ✅     | ✅      | ✅        |
+| doesMossSpread             | ✅      | ✅     | ✅      | ✅        |
+| doesGrassSpread            | ✅      | ✅     | ✅      | ✅        |
+| doProjectilePickup         | ✅      | ✅     | ✅      | ✅        |
+| doesPlayerHunger           | ✅      | ✅     | ✅      | ✅        |
+| doItemsDespawn             | ✅      | ✅     | ✅      | ✅        |
+| doDragonEggsDropOnRespawn  | ✅      | ✅     | ✅      | ✅        |
+| doesInfinityNeedArrow      | ✅      | ✅     | ✅      | ✅        |
+| doPlayerHeadsDrop          | ✅      | ✅     | ✅      | ✅        |
+| playerHeadDropChance       | ✅      | ✅     | ✅      | ✅        |
+| doMobHeadDrop              | ✅      | ✅     | ✅      | ✅        |
+| mobHeadDropChance          | ✅      | ✅     | ✅      | ✅        |
+| doesObsidianGenerate       | ✅      | ✅     | ✅      | ✅        |
+| doesStoneGenerate          | ✅      | ✅     | ✅      | ✅        |
+| doesCobblestoneGenerate    | ✅      | ✅     | ✅      | ✅        |
+| doesBasaltGenerate         | ✅      | ✅     | ✅      | ✅        |
 
 > For a fully descriptive list of each GameRule and what it does, please see the [MoreRules Wiki](https://github.com/GamerDuck123/MoreRules/wiki).
 
