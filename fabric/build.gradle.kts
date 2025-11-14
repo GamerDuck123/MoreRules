@@ -1,3 +1,7 @@
+plugins {
+    id("fabric-plugin")
+}
+
 dependencies {
     minecraft(libs.minecraft)
 
@@ -6,24 +10,7 @@ dependencies {
         parchment("org.parchmentmc.data:parchment-${libs.versions.minecraft.get()}:${libs.versions.parchment.mappings.get()}@zip")
     })
     modImplementation(libs.fabric.loader)
-    modImplementation(libs.fabric.api)
-}
-
-modrinth {
-    uploadFile.set(project.tasks.remapJar)
-}
-
-tasks.register("publishCurseForge", net.darkhax.curseforgegradle.TaskPublishCurseForge::class) {
-    apiToken = System.getenv("CURSEFORGE_TOKEN") as String?
-
-    val projectId = findProperty("curseforgeID") as String?
-
-    val mainFile = upload(projectId, project.tasks.remapJar)
-    mainFile.addModLoader("Fabric")
-    mainFile.addGameVersion(rootProject.property("minecraftVersion") as String)
-    mainFile.releaseType = "release"
-    mainFile.displayName = "${project.version as String}-${project.name}"
-    mainFile.changelog = rootProject.file("CHANGELOG.md").readText()
+    modImplementation("${libs.fabric.api.get()}+${libs.versions.minecraft.get()}")
 }
 
 tasks.register<Copy>("copyCommonSources") {

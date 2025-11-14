@@ -10,10 +10,19 @@ modrinth {
             "neoforge" -> listOf("neoforge")
             "sponge" -> listOf("sponge")
             "paper" -> listOf("paper", "purpur")
-            "bukkit" -> listOf("spigot", "bukkit")
+            "spigot" -> listOf("spigot", "bukkit")
             else -> throw IllegalStateException("Unknown loader $name")
         }
     )
+
+    uploadFile.set(when (project.name) {
+        "fabric" -> tasks.named<net.fabricmc.loom.task.RemapJarTask>("remapJar")
+        "neoforge" -> tasks.named<Jar>("jar")
+        "paper" -> tasks.named<Jar>("jar")
+        "spigot" -> tasks.named<Jar>("jar")
+        else -> throw IllegalStateException("Unknown loader $name")
+    })
+
     token.set(System.getenv("MODRINTH_TOKEN"))
     projectId.set(rootProject.property("modrinthID") as String)
     versionType.set(rootProject.property("versionType") as String)

@@ -1,3 +1,7 @@
+plugins {
+    id("common-plugin")
+}
+
 dependencies {
     compileOnly(libs.gson)
 
@@ -9,7 +13,7 @@ dependencies {
 }
 
 neoForge {
-    neoFormVersion = libs.versions.neoform.get()
+    neoFormVersion = "${libs.versions.minecraft.get()}-${libs.versions.neoform.get()}"
 }
 
 

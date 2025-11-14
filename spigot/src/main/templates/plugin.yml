@@ -5,6 +5,9 @@ version: '${version}'
 description: '${description}'
 api-version: '${apiVersion}'
 
+libraries:
+  - me.lucko:commodore:2.2
+
 commands:
   gamerule:
     description: Sets or gets gamerules (vanilla or custom)

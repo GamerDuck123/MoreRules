@@ -4,25 +4,57 @@ metadata.format.version = "1.1"
 
 minecraft = "1.21.10"
 loader = "0.17.3"
-api = "0.135.0+1.21.10"
+api = "0.135.0" #Dont include the minecraft version
 brigadier = "1.2.9"
-gson = "2.10.1"
 parchment_mappings="2025.10.12"
 neo="21.9.16-beta"
-neoform="1.21.10-20251010.172816"
-spigot="1.21.9-R0.1-SNAPSHOT"
-authlib="1.5.25"
-commodore="2.2"
+neoform="20251010.172816" #Dont include the minecraft version
 mixin="0.8.5"
 
-[libraries]
+gson = "2.10.1"
+authlib="7.0.61"
+commodore="2.2"
 
+shadow-gradle-plugin="9.1.0"
+paperweight-userdev="2.0.0-beta.18"
+moddev-gradle="2.0.115"
+fabric-loom="1.11-SNAPSHOT"
+minotaur="2.8.10"
+curseforge="1.1.26"
+hangar="0.1.3"
+github-release="2.5.2"
+
+[libraries]
+# Project General
 minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
 fabric_loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "loader" }
 fabric_api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "api" }
 brigadier = { group = "com.mojang", name = "brigadier", version.ref = "brigadier" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
-spigot_api = { group = "org.spigotmc", name = "spigot-api", version.ref = "spigot" }
+
+# Project Specific
 authlib = { group = "com.mojang", name = "authlib", version.ref = "authlib" }
 commodore = { group = "me.lucko", name = "commodore", version.ref = "commodore" }
 mixin = { group = "org.spongepowered", name = "mixin", version.ref = "mixin" }
+
+# Build Stuff
+shadow-gradle-plugin = { group = "com.gradleup.shadow", name = "shadow-gradle-plugin", version.ref = "shadow-gradle-plugin" }
+paperweight-userdev = { group = "io.papermc.paperweight", name = "paperweight-userdev", version.ref = "paperweight-userdev" }
+moddev-gradle = { group = "net.neoforged", name = "moddev-gradle", version.ref = "moddev-gradle" }
+fabric-loom = { group = "fabric-loom", name = "fabric-loom.gradle.plugin", version.ref = "fabric-loom" }
+minotaur = { group = "com.modrinth.minotaur", name = "Minotaur", version.ref = "minotaur" }
+curseforge = { group = "net.darkhax.curseforgegradle", name = "net.darkhax.curseforgegradle.gradle.plugin", version.ref = "curseforge" }
+hangar = { group = "io.papermc.hangar-publish-plugin", name = "io.papermc.hangar-publish-plugin.gradle.plugin", version.ref = "hangar" }
+github-release = { group = "com.github.breadmoirai", name = "github-release", version.ref = "github-release" }
+
+[bundles]
+build = [
+    "shadow-gradle-plugin",
+    "paperweight-userdev",
+    "moddev-gradle",
+    "fabric-loom",
+    "minotaur",
+    "curseforge",
+    "hangar",
+    "github-release"
+]

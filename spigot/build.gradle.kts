@@ -1,15 +1,15 @@
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.exclude
+plugins {
+    id("spigot-plugin")
+}
+
 
 dependencies {
-    compileOnly(libs.spigot.api)
+    compileOnly("org.spigotmc:spigot-api:${libs.versions.minecraft.get()}-R0.1-SNAPSHOT")
     compileOnly(libs.authlib)
     compileOnly(libs.gson)
     implementation(libs.commodore)
-}
-
-modrinth {
-    uploadFile.set(tasks.shadowJar)
 }
 
 tasks.register<Copy>("copyCommonSources") {
@@ -77,15 +77,15 @@ tasks {
         }
         into(layout.buildDirectory.dir("src/main/resources"))
     }
-    build {
-        dependsOn("shadowJar")
-    }
-    shadowJar {
-        dependencies {
-            exclude(dependency("com.mojang:brigadier"))
-        }
-
-        relocate("me.lucko.commodore", "me.gamerduck.rules.bukkit.commodore")
-        archiveClassifier.set("")
-    }
+//    build {
+//        dependsOn("shadowJar")
+//    }
+//    shadowJar {
+//        dependencies {
+//            exclude(dependency("com.mojang:brigadier"))
+//        }
+//
+//        relocate("me.lucko.commodore", "me.gamerduck.rules.bukkit.commodore")
+//        archiveClassifier.set("")
+//    }
 }
